@@ -36,17 +36,17 @@ const createItem = (itemObj) => new Promise((resolve, reject) => {
     }).catch(reject);
 });
 
-// Delete vocabulary entry
+// Delete item
 const deleteItem = (firebaseKey) => new Promise((resolve, reject) => {
-  axios.delete(`${dbURL}/vocab/${firebaseKey}.json`)
+  axios.delete(`${dbURL}/items/${firebaseKey}.json`)
     .then(() => {
       getAllItems().then(resolve);
     }).catch(reject);
 });
 
-// Update vocabulary entry
+// Update item
 const updateItem = (firebaseKey, payload) => new Promise((resolve, reject) => {
-  axios.patch(`${dbURL}/vocab/${firebaseKey}.json`, payload)
+  axios.patch(`${dbURL}/items/${firebaseKey}.json`, payload)
     .then(() => getAllItems().then(resolve))
     .catch(reject);
 });
