@@ -27,8 +27,7 @@ const closeOrderConfirm = (orderKey) => {
         paymentType,
         orderType: order.orderType
       };
-      createRecord(newRecord);
-      closeOrder(orderKey);
+      createRecord(newRecord).then(() => closeOrder(orderKey));
     });
   });
 };

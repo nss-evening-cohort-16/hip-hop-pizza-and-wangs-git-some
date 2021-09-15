@@ -6,7 +6,7 @@ const dbURL = firebaseConfig.databaseURL;
 // Get all items
 const getAllItems = () => new Promise((resolve, reject) => {
   axios.get(`${dbURL}/items.json`)
-    .then((response) => resolve(Object.values(response)))
+    .then((response) => resolve(Object.values(response.data)))
     .catch(reject);
 });
 

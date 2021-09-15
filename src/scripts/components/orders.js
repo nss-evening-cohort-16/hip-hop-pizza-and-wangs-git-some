@@ -9,14 +9,14 @@ const showOrders = (orderArr) => {
      <h4 class="card-title">${order.name}</h4>
      <ul id="order info">
         <li>${order.isOpen}</li>
-        <li>${order.phone} || 'no phone provided'</li>
+        <li>${order.phone || 'no phone provided'}</li>
         <li>${order.email || 'no email provided'}</li>
         <li>${order.type}</li>
      </ul>
      <div id="order-buttons">
-        <a href="#" class="order-detail-btn">Details</a>
-        <a href="#" class="order-edit-btn">Edit</a>
-        ${order.isOpen ? '<a href="#" class="order-delete-btn">Delete</a>' : ''}
+        <a href="#" class="order-detail-btn" id="order-detail-btn--${order.firebaseKey}">Details</a>
+        <a href="#" class="order-edit-btn" id="order-edit-btn--${order.firebaseKey}">Edit</a>
+        ${order.isOpen ? `<a href="#" class="order-delete-btn" id="order-delete-btn--${order.firebaseKey}">Delete</a>` : ''}
    </div>
  </div>`;
   });
