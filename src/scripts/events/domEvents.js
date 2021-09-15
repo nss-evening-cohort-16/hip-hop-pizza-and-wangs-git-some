@@ -5,6 +5,7 @@ import showOrderDetails from '../components/orderDetails';
 import showOrders from '../components/orders';
 import addNewItem from '../helpers/button-functions/addNewItem';
 import closeOrderConfirm from '../helpers/button-functions/closeOrderButton';
+import { deleteItem } from '../helpers/data/item-data';
 import { deleteOrder, getSingleOrder } from '../helpers/data/order-data';
 
 const clickListener = () => {
@@ -37,6 +38,13 @@ const clickListener = () => {
 
       case 'payment':
         closeOrderPage(targetKey);
+        break;
+
+      case 'item-edit-btn':
+        break;
+
+      case 'item-delete-btn':
+        deleteItem(targetKey).then(showOrderDetails);
         break;
 
       // Add Item Form

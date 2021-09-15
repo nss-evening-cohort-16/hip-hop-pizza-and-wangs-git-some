@@ -19,8 +19,8 @@ const showOrderDetails = async (orderId) => {
           <h4 class="card-item">${item.name}</h4>
           <h4 class="card-price">PRICE: $${item.price}</h4>
           <div id="item-buttons">
-            <a href="#" class="item-edit-btn--${item.firebaseKey}">Edit</a>
-            <a href="#" class="item-delete-btn--${item.firebaseKey}">Delete</a>
+            <a href="#" id="item-edit-btn--${item.firebaseKey}">Edit</a>
+            <a href="#" id="item-delete-btn--${item.firebaseKey}">Delete</a>
           </div>
         </div>`;
   });
