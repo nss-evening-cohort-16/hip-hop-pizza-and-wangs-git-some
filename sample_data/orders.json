@@ -1,0 +1,92 @@
+{
+  "-MjX4hTnAwX8ZsDBtkg0": {
+    "date" : "timestamp",
+    "email" : "mferguson@email.com",
+    "firebaseKey" : "-MjX4hTnAwX8ZsDBtkg0",
+    "isOpen" : true,
+    "name" : "Murphy Ferguson",
+    "orderType" : "phone",
+    "phone" : "111-111-1111"
+  },
+  "-Mj1r6KunmGK-NazXSzb": {
+    "date" : "timestamp",
+    "email" : "hdeacon@email.com",
+    "firebaseKey" : "-Mj1r6KunmGK-NazXSzb",
+    "isOpen" : false,
+    "name" : "Hanan Deacon",
+    "orderType" : "email",
+    "phone" : "222-222-2222"
+  },
+  "-Mj6wVFPqYAgrPZv2TqI": {
+    "date" : "timestamp",
+    "email" : "selliott@email.com",
+    "firebaseKey" : "-Mj6wVFPqYAgrPZv2TqI",
+    "isOpen" : true,
+    "name" : "Shola Elliott",
+    "orderType" : "phone",
+    "phone" : "333-333-3333"
+  },
+  "-Mj6wbUCfnq8_9eo3SmE": {
+    "date" : "timestamp",
+    "email" : "akeller@email.com",
+    "firebaseKey" : "-Mj6wbUCfnq8_9eo3SmE",
+    "isOpen" : false,
+    "name" : "Ace Keller",
+    "orderType" : "email",
+    "phone" : "444-444-4444"
+  },
+  "-Mj6uYvPYwOaK_id_-i7": {
+    "date" : "timestamp",
+    "email" : "wferreira@email.com",
+    "firebaseKey" : "-Mj6uYvPYwOaK_id_-i7",
+    "isOpen" : true,
+    "name" : "Wade Ferreira",
+    "orderType" : "phone",
+    "phone" : "555-555-5555"
+  },
+  "-Mj6wzuaftOOz46I9Wap": {
+    "date" : "timestamp",
+    "email" : "zwilde@email.com",
+    "firebaseKey" : "-Mj6wzuaftOOz46I9Wap",
+    "isOpen" : false,
+    "name" : "Zoey Wilde",
+    "orderType" : "email",
+    "phone" : "666-666-6666"
+  },
+  "-Mj6xWlvDdSVKhRGsrEu": {
+    "date" : "timestamp",
+    "email" : "csparks@email.com",
+    "firebaseKey" : "-Mj6xWlvDdSVKhRGsrEu",
+    "isOpen" : true,
+    "name" : "Carolyn Sparks",
+    "orderType" : "phone",
+    "phone" : "777-777-7777"
+  },
+  "-Mj6y1TqlvepN8fb7UX7": {
+    "date" : "timestamp",
+    "email" : "tdickinson@email.com",
+    "firebaseKey" : "-Mj6y1TqlvepN8fb7UX7",
+    "isOpen" : false,
+    "name" : "Teagan Dickinson",
+    "orderType" : "email",
+    "phone" : "888-888-8888"
+  },
+  "-Mj6z8cmxz10-2KSpWrf": {
+    "date" : "timestamp",
+    "email" : "hbailey@email.com",
+    "firebaseKey" : "-Mj6z8cmxz10-2KSpWrf",
+    "isOpen" : true,
+    "name" : "Hayden Bailey",
+    "orderType" : "phone",
+    "phone" : "999-999-9999"
+  },
+  "-Mj6zFI4pj0MOvS3pfj5": {
+    "date" : "timestamp",
+    "email" : "frivas@email.com",
+    "firebaseKey" : "-Mj6zFI4pj0MOvS3pfj5",
+    "isOpen" : false,
+    "name" : "Frankie Rivas",
+    "orderType" : "email",
+    "phone" : "101-101-1010"
+  }
+}

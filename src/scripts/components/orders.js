@@ -21,7 +21,6 @@ const showOrders = (orderArr) => {
  </div>`;
   });
   document.querySelector('#cardContainer').innerHTML = domString;
-  document.querySelector('#titleContainer').style.display = 'flex';
 };
 
 export default showOrders;
