@@ -29,6 +29,21 @@ body {
   color: #9b9d9e;
 }
 
+#cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1em;
+}
+
+.order-card {
+  flex-basis: 23%;
+  margin: .5em;
+}
+
+.order-card ul {
+  list-style-type: none;
+}
+
 .requiredItem {
   color: red;
 }
