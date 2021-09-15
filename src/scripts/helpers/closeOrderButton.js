@@ -1,4 +1,4 @@
-import { getSingleOrder, updateOrder } from './data/orders';
+import { getSingleOrder, updateOrder } from './data/order-data';
 import { getOrderItems } from './data/item-data';
 import { createRecord } from './data/sales-data';
 
