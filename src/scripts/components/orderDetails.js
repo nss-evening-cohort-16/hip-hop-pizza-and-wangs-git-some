@@ -1,5 +1,6 @@
 import clearDom from '../helpers/clearDom';
 import { getOrderItems } from '../helpers/data/item-data';
+import { getSingleOrder } from '../helpers/data/order-data';
 
 const orderTotal = (orderItems) => {
   let total = 0;
@@ -24,13 +25,16 @@ const showOrderDetails = async (orderId) => {
         </div>`;
   });
 
-  domString += `
-        <div class="order-detail-buttons">
-          <button type="button" class="btn btn-secondary" id="add-item--${orderId}">Add Item</button>
-          <button type="button" class="btn btn-primary" id="payment--${orderId}">Go To Payment</button>
-        </div>
+  const orderInfo = await getSingleOrder(orderId);
+  if (orderInfo.isOpen) {
+    domString += `
+      <div class="order-detail-buttons">
+        <button type="button" class="btn btn-secondary" id="add-item--${orderId}">Add Item</button>
+        <button type="button" class="btn btn-primary" id="payment--${orderId}">Go To Payment</button>
       </div>`;
+  }
 
+  domString += '</div>';
   document.querySelector('#cardContainer').innerHTML = domString;
 };
 

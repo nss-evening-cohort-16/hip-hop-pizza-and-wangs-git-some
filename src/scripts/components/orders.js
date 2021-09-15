@@ -11,12 +11,12 @@ const showOrders = (orderArr) => {
         <li>${order.isOpen}</li>
         <li>${order.phone || 'no phone provided'}</li>
         <li>${order.email || 'no email provided'}</li>
-        <li>${order.type}</li>
+        <li>${order.orderType}</li>
      </ul>
      <div id="order-buttons">
         <a href="#" class="order-detail-btn" id="order-detail-btn--${order.firebaseKey}">Details</a>
         <a href="#" class="order-edit-btn" id="order-edit-btn--${order.firebaseKey}">Edit</a>
-        ${order.isOpen ? `<a href="#" class="order-delete-btn" id="order-delete-btn--${order.firebaseKey}">Delete</a>` : ''}
+        ${order.isOpen ? '' : `<a href="#" class="order-delete-btn" id="order-delete-btn--${order.firebaseKey}">Delete</a>`}
    </div>
  </div>`;
   });

@@ -1,13 +1,14 @@
 import { getSingleOrder, updateOrder } from './data/order-data';
 import { getOrderItems } from './data/item-data';
 import { createRecord } from './data/sales-data';
+import showOrders from '../components/orders';
 
 const closeOrder = (orderKey) => {
   const orderPatch = {
     firebaseKey: orderKey,
     isOpen: false
   };
-  updateOrder(orderPatch);
+  updateOrder(orderPatch).then(showOrders);
 };
 
 const closeOrderConfirm = (orderKey) => {
