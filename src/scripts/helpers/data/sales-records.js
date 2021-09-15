@@ -2,14 +2,20 @@ import { getAllSalesRecords } from './sales-data';
 
 // Get Total Sales and Tips from all records in a given array
 const getTotals = (recordArray) => {
-  let revenue = 0;
+  let sales = 0;
   let tips = 0;
   recordArray.forEach((record) => {
-    revenue += record.order_total;
+    sales += record.order_total;
     tips += record.tip;
   });
 
-  return `${revenue}--${tips}`;
+  return `${sales}--${tips}`;
+};
+
+// Get Total Sales combined with Tips for a given array or sales records
+const getGrandTotal = (recordArray) => {
+  const [sales, tips] = getTotals(recordArray).split('--');
+  return sales + tips;
 };
 
 // Get records from a certain date
@@ -29,6 +35,7 @@ const getRecordsByOrderType = (orderType) => {
 
 export {
   getTotals,
+  getGrandTotal,
   getRecordsByDate,
   getRecordsByPaymentType,
   getRecordsByOrderType

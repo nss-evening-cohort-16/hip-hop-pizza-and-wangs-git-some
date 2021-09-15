@@ -1,8 +1,16 @@
-import { getSingleOrder } from '../helpers/orders.js';
+import { getSingleOrder, updateOrder } from '../helpers/orders';
 import { getOrderItems } from '../helpers/data/item-data';
 import { createRecord } from '../helpers/data/sales-data';
 
 const closeOrder = (orderKey) => {
+  const orderPatch = {
+    firebaseKey: orderKey,
+    isOpen: false
+  };
+  updateOrder(orderPatch);
+};
+
+const closeOrderConfirm = (orderKey) => {
   getSingleOrder(orderKey).then((order) => {
     getOrderItems(orderKey).then((items) => {
       let orderTotal = 0;
@@ -19,9 +27,10 @@ const closeOrder = (orderKey) => {
         paymentType,
         orderType: order.orderType
       };
-      createRecord(newRecord).then(showOrders);
+      createRecord(newRecord);
+      closeOrder(orderKey);
     });
   });
 };
 
-export default closeOrder;
+export default closeOrderConfirm;
