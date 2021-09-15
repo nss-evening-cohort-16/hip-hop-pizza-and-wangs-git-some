@@ -1,7 +1,9 @@
+import addOrderForm from '../components/addOrderForm';
 import closeOrderPage from '../components/closeOrderPage';
 import newItemForm from '../components/newItemForm';
 import showOrderDetails from '../components/orderDetails';
 import closeOrderConfirm from '../helpers/closeOrderButton';
+import { getSingleOrder } from '../helpers/data/order-data';
 
 const clickListener = () => {
   document.querySelector('#app').addEventListener('click', (e) => {
@@ -13,6 +15,10 @@ const clickListener = () => {
       // View Orders Page
       case 'order-detail-btn':
         showOrderDetails(targetKey);
+        break;
+
+      case 'order-edit-btn':
+        getSingleOrder(targetKey).then(addOrderForm);
         break;
 
       // Order Details Page
