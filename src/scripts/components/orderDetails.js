@@ -11,7 +11,7 @@ const orderTotal = (orderItems) => {
 const showOrderDetails = async (orderId) => {
   clearDom();
   const orderItems = await getOrderItems(orderId);
-  let domString = `<div class="order-total">TOTAL: $${orderTotal(orderItems)}</div>`;
+  let domString = '';
   orderItems.forEach((item) => {
     domString += `
       <div class="card item-card">
@@ -25,6 +25,8 @@ const showOrderDetails = async (orderId) => {
         </div>`;
   });
 
+  domString += `<div class="order-total">TOTAL: $${orderTotal(orderItems)}</div>`;
+
   const orderInfo = await getSingleOrder(orderId);
   if (orderInfo.isOpen) {
     domString += `
@@ -33,8 +35,8 @@ const showOrderDetails = async (orderId) => {
         <button type="button" class="btn btn-primary" id="payment--${orderId}">Go To Payment</button>
       </div>`;
   }
-
   domString += '</div>';
+
   document.querySelector('#cardContainer').innerHTML = domString;
 };
 

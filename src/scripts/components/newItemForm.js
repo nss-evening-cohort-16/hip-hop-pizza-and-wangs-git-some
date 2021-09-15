@@ -12,7 +12,7 @@ const newItemForm = (orderId = '', item = {}) => {
         <label for="itemPrice" class="form-label">Item Price</label>
         <input type="number" required class="form-control" id="itemPrice" aria-describedby="Item Price" value="${item.price || ''}" placeholder="Enter price">
       </div>
-      <button type="submit" class="btn btn-success" id="${item.firebaseKey ? `submitItem--${orderId}` : `updateItem--${item.firebaseKey}`}">Add/Edit Item</button>
+      <button type="submit" class="btn btn-success" id="${item.firebaseKey ? `updateItem--${item.firebaseKey}">Edit Item` : `submitItem--${orderId}">Add Item`}</button>
     </form>`;
 };
 

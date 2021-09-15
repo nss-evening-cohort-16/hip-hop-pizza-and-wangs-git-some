@@ -3,7 +3,8 @@ import closeOrderPage from '../components/closeOrderPage';
 import newItemForm from '../components/newItemForm';
 import showOrderDetails from '../components/orderDetails';
 import showOrders from '../components/orders';
-import closeOrderConfirm from '../helpers/closeOrderButton';
+import addNewItem from '../helpers/button-functions/addNewItem';
+import closeOrderConfirm from '../helpers/button-functions/closeOrderButton';
 import { deleteOrder, getSingleOrder } from '../helpers/data/order-data';
 
 const clickListener = () => {
@@ -36,6 +37,11 @@ const clickListener = () => {
 
       case 'payment':
         closeOrderPage(targetKey);
+        break;
+
+      // Add Item Form
+      case 'submitItem':
+        addNewItem(targetKey);
         break;
 
       // Close Order Page
