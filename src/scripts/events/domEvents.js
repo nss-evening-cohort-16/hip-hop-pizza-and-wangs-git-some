@@ -2,8 +2,9 @@ import addOrderForm from '../components/addOrderForm';
 import closeOrderPage from '../components/closeOrderPage';
 import newItemForm from '../components/newItemForm';
 import showOrderDetails from '../components/orderDetails';
+import showOrders from '../components/orders';
 import closeOrderConfirm from '../helpers/closeOrderButton';
-import { getSingleOrder } from '../helpers/data/order-data';
+import { deleteOrder, getSingleOrder } from '../helpers/data/order-data';
 
 const clickListener = () => {
   document.querySelector('#app').addEventListener('click', (e) => {
@@ -19,6 +20,13 @@ const clickListener = () => {
 
       case 'order-edit-btn':
         getSingleOrder(targetKey).then(addOrderForm);
+        break;
+
+      case 'order-delete-btn':
+        // eslint-disable-next-line no-alert
+        if (window.confirm('Are you sure you want to delete this order?')) {
+          deleteOrder(targetKey).then(showOrders);
+        }
         break;
 
       // Order Details Page
