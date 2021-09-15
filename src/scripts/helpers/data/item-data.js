@@ -6,7 +6,7 @@ const dbURL = firebaseConfig.databaseURL;
 // Get all items
 const getAllItems = () => new Promise((resolve, reject) => {
   axios.get(`${dbURL}/items.json`)
-    .then((response) => resolve(Object.values(response)))
+    .then((response) => resolve(Object.values(response.data)))
     .catch(reject);
 });
 
@@ -38,10 +38,12 @@ const createItem = (itemObj) => new Promise((resolve, reject) => {
 
 // Delete item
 const deleteItem = (firebaseKey) => new Promise((resolve, reject) => {
-  axios.delete(`${dbURL}/items/${firebaseKey}.json`)
-    .then(() => {
-      getAllItems().then(resolve);
-    }).catch(reject);
+  getItem(firebaseKey).then((item) => {
+    axios.delete(`${dbURL}/items/${firebaseKey}.json`)
+      .then(() => {
+        resolve(item.orderKey);
+      }).catch(reject);
+  });
 });
 
 // Update item

@@ -5,7 +5,7 @@ const addOrderForm = (obj = {}) => {
   document.querySelector('#formContainer').innerHTML = `<form id="${obj.firebaseKey ? `updateOrderForm--${obj.firebaseKey}` : 'orderForm'}">
     <div class="mb-3">
       <label for="customerName" class="form-label">Order Name<span class="requiredItem">*</span></label>
-      <input type="text" required class="form-control" id="customerName" aria-describedby="Order Name" value="${obj.customerName || ''}" placeholder="Enter term name">
+      <input type="text" required class="form-control" id="customerName" aria-describedby="Order Name" value="${obj.name || ''}" placeholder="Enter term name">
     </div>
     <div class="mb-3">
       <label for="phone" class="form-label">Customer Phone</label>
@@ -18,8 +18,8 @@ const addOrderForm = (obj = {}) => {
     <label for="orderType" class="form-label">Order Type<span class="requiredItem">*</span></label>
     <select class="form-select" id="orderType" aria-label="Order Type">
         <option selected>Please select order type</option>
-        <option value="phone">Phone</option>
-        <option value="email">Email</option>
+        <option value="phone" ${obj.orderType === 'phone' ? 'selected' : ''}>Phone</option>
+        <option value="email" ${obj.orderType === 'email' ? 'selected' : ''}>Email</option>
     </select>
     <button type="submit" class="btn btn-primary" id="submitOrder--${obj.firebaseKey}">Submit</button>
   </form>`;

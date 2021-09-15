@@ -1,13 +1,14 @@
-import { getSingleOrder, updateOrder } from '../helpers/data/order-data';
-import { getOrderItems } from '../helpers/data/item-data';
-import { createRecord } from '../helpers/data/sales-data';
+import { getSingleOrder, updateOrder } from '../data/order-data';
+import { getOrderItems } from '../data/item-data';
+import { createRecord } from '../data/sales-data';
+import showOrders from '../../components/orders';
 
 const closeOrder = (orderKey) => {
   const orderPatch = {
     firebaseKey: orderKey,
     isOpen: false
   };
-  updateOrder(orderPatch);
+  updateOrder(orderPatch).then(showOrders);
 };
 
 const closeOrderConfirm = (orderKey) => {
@@ -17,8 +18,8 @@ const closeOrderConfirm = (orderKey) => {
       items.forEach((item) => {
         orderTotal += item.price;
       });
-      const tip = document.querySelector('#tip-input').valueAsNumber;
-      const paymentType = document.querySelector('#payment-type').value;
+      const tip = document.querySelector('#tipAmount').valueAsNumber;
+      const paymentType = document.querySelector('#paymentType').value;
 
       const newRecord = {
         date: order.date,
@@ -27,8 +28,7 @@ const closeOrderConfirm = (orderKey) => {
         paymentType,
         orderType: order.orderType
       };
-      createRecord(newRecord);
-      closeOrder(orderKey);
+      createRecord(newRecord).then(() => closeOrder(orderKey));
     });
   });
 };

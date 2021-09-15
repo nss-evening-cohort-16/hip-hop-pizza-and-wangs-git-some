@@ -1,35 +1,43 @@
-// import clearDom from '../helpers/clearDom';
-// import getOrderItems from ''
+import clearDom from '../helpers/clearDom';
+import { getOrderItems } from '../helpers/data/item-data';
+import { getSingleOrder } from '../helpers/data/order-data';
 
-// const orderTotal = (orderItems) => {
-//   const total = 0;
-//   orderItems.forEach((item) => total += item.price);
-//   return total;
-// };
+const orderTotal = (orderItems) => {
+  let total = 0;
+  orderItems.forEach((item) => { total += item.price; });
+  return total;
+};
 
-// const showOrderDetails = async (orderId) => {
-//   clearDom();
-//   const orderItems = await getOrderItems(orderId);
-//   let domString = '<div class="order-total>TOTAL: $${orderTotal(orderItems)}</div>"';
-//   orderItems.forEach((item) => {
-//     domString += `<div class="card item-card">
-//     <div class="card-body">
-//         <h4 class="card-item">${item.name}</h4>
-//         <h4 class="card-price">PRICE: $${item.price}</h4>
-//         <div id="item-buttons">
-//             <a href="#" class="item-edit-btn--${item.firebaseKey}">Edit</a>
-//             <a href="#" class="item-delete-btn--${item.firebaseKey}">Delete</a>
-//     </div>
-//     </div>`;
+const showOrderDetails = async (orderId) => {
+  clearDom();
+  const orderItems = await getOrderItems(orderId);
+  let domString = '';
+  orderItems.forEach((item) => {
+    domString += `
+      <div class="card item-card">
+        <div class="card-body">
+          <h4 class="card-item">${item.name}</h4>
+          <h4 class="card-price">PRICE: $${item.price}</h4>
+          <div id="item-buttons">
+            <a href="#" id="item-edit-btn--${item.firebaseKey}">Edit</a>
+            <a href="#" id="item-delete-btn--${item.firebaseKey}">Delete</a>
+          </div>
+        </div>`;
+  });
 
-//     domString += `<div class="order-detail-buttons">
-//         <button type="button" class="btn btn-secondary" id="add-item--${orderId}">Add Item</button>
-//         <button type="button" class="btn btn-primary" id="payment--${orderId}>Go To Payment</button>
-//     </div>`;
-//     document.querySelector('#cardContainer').innerHTML = domString;
-//   });
-// };
+  domString += `<div class="order-total">TOTAL: $${orderTotal(orderItems)}</div>`;
 
-// export default showOrderDetails;
+  const orderInfo = await getSingleOrder(orderId);
+  if (orderInfo.isOpen) {
+    domString += `
+      <div class="order-detail-buttons">
+        <button type="button" class="btn btn-secondary" id="add-item--${orderId}">Add Item</button>
+        <button type="button" class="btn btn-primary" id="payment--${orderId}">Go To Payment</button>
+      </div>`;
+  }
+  domString += '</div>';
 
-// TODO: update after getOrderItems API call created
+  document.querySelector('#cardContainer').innerHTML = domString;
+};
+
+export default showOrderDetails;
