@@ -6,7 +6,7 @@ import showOrders from '../components/orders';
 import addNewItem from '../helpers/button-functions/addNewItem';
 import closeOrderConfirm from '../helpers/button-functions/closeOrderButton';
 import { deleteItem } from '../helpers/data/item-data';
-import { deleteOrder, getSingleOrder } from '../helpers/data/order-data';
+import { createOrder, deleteOrder, getSingleOrder } from '../helpers/data/order-data';
 
 const clickListener = () => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -57,6 +57,20 @@ const clickListener = () => {
         e.preventDefault();
         closeOrderConfirm(targetKey);
         break;
+
+        // CREATE ORDER
+      case 'submitOrder': {
+        e.preventDefault();
+        const newOrder = {
+          name: document.querySelector('#customerName').value,
+          email: document.querySelector('#email').value,
+          phone: document.querySelector('#phone').value,
+          orderType: document.querySelector('#orderType').value,
+          date: new Date()
+        };
+        createOrder(newOrder).then((allOrders) => showOrders(allOrders));
+        break;
+      }
 
       default: break;
     }
