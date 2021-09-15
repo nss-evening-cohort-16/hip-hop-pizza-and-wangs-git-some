@@ -1,6 +1,6 @@
-import { getSingleOrder, updateOrder } from '../helpers/orders';
-import { getOrderItems } from '../helpers/data/item-data';
-import { createRecord } from '../helpers/data/sales-data';
+import { getSingleOrder, updateOrder } from './data/orders';
+import { getOrderItems } from './data/item-data';
+import { createRecord } from './data/sales-data';
 
 const closeOrder = (orderKey) => {
   const orderPatch = {
@@ -17,8 +17,8 @@ const closeOrderConfirm = (orderKey) => {
       items.forEach((item) => {
         orderTotal += item.price;
       });
-      const tip = document.querySelector('#tip-input').valueAsNumber;
-      const paymentType = document.querySelector('#payment-type').value;
+      const tip = document.querySelector('#tipAmount').valueAsNumber;
+      const paymentType = document.querySelector('#paymentType').value;
 
       const newRecord = {
         date: order.date,
