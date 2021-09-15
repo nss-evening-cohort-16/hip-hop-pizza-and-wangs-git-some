@@ -6,7 +6,12 @@ import showOrders from '../components/orders';
 import addNewItem from '../helpers/button-functions/addNewItem';
 import closeOrderConfirm from '../helpers/button-functions/closeOrderButton';
 import { deleteItem } from '../helpers/data/item-data';
-import { createOrder, deleteOrder, getSingleOrder } from '../helpers/data/order-data';
+import {
+  deleteOrder,
+  getSingleOrder,
+  getOrders,
+  createOrder
+} from '../helpers/data/order-data';
 
 const clickListener = () => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -71,6 +76,17 @@ const clickListener = () => {
         createOrder(newOrder).then((allOrders) => showOrders(allOrders));
         break;
       }
+
+      case 'landingViewOrders':
+        getOrders().then(showOrders);
+        break;
+
+      case 'landingCreateOrder':
+        addOrderForm();
+        break;
+
+      case 'landingRevenue':
+        break;
 
       default: break;
     }
