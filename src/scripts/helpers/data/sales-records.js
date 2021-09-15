@@ -13,7 +13,7 @@ const getTotals = (recordArray) => {
 };
 
 // Get records from a certain date
-const getRecordsFromDate = (date) => {
+const getRecordsByDate = (date) => {
   getAllSalesRecords().then((records) => records.filter((record) => record.date === date));
 };
 
@@ -29,7 +29,7 @@ const getRecordsByOrderType = (orderType) => {
 
 export {
   getTotals,
-  getRecordsFromDate,
+  getRecordsByDate,
   getRecordsByPaymentType,
   getRecordsByOrderType
 };
