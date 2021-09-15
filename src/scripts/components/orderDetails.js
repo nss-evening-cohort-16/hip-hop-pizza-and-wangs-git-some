@@ -22,14 +22,14 @@ const showOrderDetails = async (orderId) => {
             <a href="#" class="item-delete-btn--${item.firebaseKey}">Delete</a>
           </div>
         </div>`;
+  });
 
-    domString += `
+  domString += `
         <div class="order-detail-buttons">
           <button type="button" class="btn btn-secondary" id="add-item--${orderId}">Add Item</button>
-          <button type="button" class="btn btn-primary" id="payment--${orderId}>Go To Payment</button>
+          <button type="button" class="btn btn-primary" id="payment--${orderId}">Go To Payment</button>
         </div>
       </div>`;
-  });
 
   document.querySelector('#cardContainer').innerHTML = domString;
 };
