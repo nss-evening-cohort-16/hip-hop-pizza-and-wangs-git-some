@@ -11,7 +11,7 @@ const startApp = (user) => {
   logoutButton(user.displayName);
   navEvents();
   clickListener();
-  landingPage();
+  landingPage(user);
 };
 
 export default startApp;
