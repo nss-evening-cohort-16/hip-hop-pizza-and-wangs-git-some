@@ -8,7 +8,6 @@ const getTotals = (recordArray) => {
     sales += record.orderTotal;
     tips += record.tip;
   });
-  console.log(sales);
   return `${sales}--${tips}`;
 };
 
