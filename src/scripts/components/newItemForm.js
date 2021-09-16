@@ -3,7 +3,7 @@ import clearDom from '../helpers/clearDom';
 const newItemForm = (orderId = '', item = {}) => {
   clearDom();
   document.querySelector('#formContainer').innerHTML = `
-    <form id="${item.firebaseKey ? `updateItem--${item.firebaseKey}` : `newItem--${orderId}`}">
+    <form id="itemForm">
       <div class="mb-3">
         <label for="itemName" class="form-label">Item Name<span class="requiredItem">*</span></label>
         <input type="text" required class="form-control" id="itemName" aria-describedby="itemName" value="${item.name || ''}" placeholder="Enter Item name" required>
