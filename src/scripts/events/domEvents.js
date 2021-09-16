@@ -7,7 +7,7 @@ import addNewItem from '../helpers/button-functions/addNewItem';
 import closeOrderConfirm from '../helpers/button-functions/closeOrderButton';
 import updateItemConfirm from '../helpers/button-functions/updateItem';
 import { deleteItem, getItem } from '../helpers/data/item-data';
-import { deleteOrder, getSingleOrder, getOrders } from '../helpers/data/order-data';
+import { getSingleOrder, getOrders, deleteOrderWithItems } from '../helpers/data/order-data';
 
 const clickListener = () => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -28,7 +28,7 @@ const clickListener = () => {
       case 'order-delete-btn':
         // eslint-disable-next-line no-alert
         if (window.confirm('Are you sure you want to delete this order?')) {
-          deleteOrder(targetKey).then(showOrders);
+          deleteOrderWithItems(targetKey);
         }
         break;
 
