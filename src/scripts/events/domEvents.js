@@ -13,6 +13,7 @@ import {
   deleteOrderWithItems,
   createOrder
 } from '../helpers/data/order-data';
+import showRevenue from '../components/revenue';
 
 const clickListener = () => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -77,7 +78,8 @@ const clickListener = () => {
           email: document.querySelector('#email').value,
           phone: document.querySelector('#phone').value,
           orderType: document.querySelector('#orderType').value,
-          date: new Date()
+          date: new Date(),
+          isOpen: true
         };
         createOrder(newOrder).then((allOrders) => showOrders(allOrders));
         break;
@@ -92,6 +94,7 @@ const clickListener = () => {
         break;
 
       case 'landingRevenue':
+        showRevenue();
         break;
 
       default: break;
