@@ -5,11 +5,6 @@ import showOrderDetails from '../components/orderDetails';
 import showOrders from '../components/orders';
 import addNewItem from '../helpers/button-functions/addNewItem';
 import closeOrderConfirm from '../helpers/button-functions/closeOrderButton';
-<<<<<<< HEAD
-import { deleteItem } from '../helpers/data/item-data';
-import { deleteOrder, getSingleOrder, getOrders } from '../helpers/data/order-data';
-import showRevenue from '../components/revenue';
-=======
 import updateItemConfirm from '../helpers/button-functions/updateItem';
 import { deleteItem, getItem } from '../helpers/data/item-data';
 import {
@@ -18,7 +13,7 @@ import {
   deleteOrderWithItems,
   createOrder
 } from '../helpers/data/order-data';
->>>>>>> main
+import showRevenue from '../components/revenue';
 
 const clickListener = () => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
