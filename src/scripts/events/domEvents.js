@@ -56,32 +56,6 @@ const clickListener = () => {
         deleteItem(targetKey).then(showOrderDetails);
         break;
 
-      // Add Item Form
-      case 'submitItem':
-        addNewItem(targetKey);
-        break;
-
-      case 'updateItem':
-        updateItemConfirm(targetKey);
-        break;
-
-      // Close Order Page
-      case 'close-order-btn':
-        e.preventDefault();
-        closeOrderConfirm(targetKey);
-        break;
-
-        // CREATE ORDER
-      case 'submitOrder':
-        e.preventDefault();
-        submitNewOrder();
-        break;
-
-      case 'updateOrder':
-        e.preventDefault();
-        submitUpdateOrder(targetKey);
-        break;
-
       case 'landingViewOrders':
         getOrders().then(showOrders);
         break;
@@ -99,4 +73,42 @@ const clickListener = () => {
   });
 };
 
-export default clickListener;
+const submitListener = () => {
+  document.querySelector('#mainContainer').addEventListener('submit', (e) => {
+    const [targetID, targetKey] = e.target.id.split('--');
+
+    console.warn(`ID: ${targetID}, Key: ${targetKey}`);
+
+    switch (targetID) {
+      // Add Item Form
+      case 'submitItem':
+        addNewItem(targetKey);
+        break;
+
+      case 'updateItem':
+        updateItemConfirm(targetKey);
+        break;
+
+      // Close Order Page
+      case 'closeOrderForm':
+        e.preventDefault();
+        closeOrderConfirm(targetKey);
+        break;
+
+        // CREATE ORDER
+      case 'submitOrder':
+        e.preventDefault();
+        submitNewOrder();
+        break;
+
+      case 'updateOrder':
+        e.preventDefault();
+        submitUpdateOrder(targetKey);
+        break;
+
+      default: break;
+    }
+  });
+};
+
+export { clickListener, submitListener };
