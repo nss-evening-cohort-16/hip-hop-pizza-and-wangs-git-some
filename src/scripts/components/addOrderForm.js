@@ -21,7 +21,7 @@ const addOrderForm = (obj = {}) => {
         <option value="phone" ${obj.orderType === 'phone' ? 'selected' : ''}>Phone</option>
         <option value="email" ${obj.orderType === 'email' ? 'selected' : ''}>Email</option>
     </select>
-    <button type="submit" class="btn btn-primary" id="submitOrder--${obj.firebaseKey}">Submit</button>
+    <button type="submit" class="btn btn-primary" id="${obj.firebaseKey ? `updateOrder--${obj.firebaseKey}` : `submitOrder--${obj.firebaseKey}`}">Submit</button>
   </form>`;
 };
 
