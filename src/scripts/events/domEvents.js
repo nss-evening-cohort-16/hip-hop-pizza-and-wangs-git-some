@@ -14,6 +14,7 @@ import {
   deleteOrderWithItems
 } from '../helpers/data/order-data';
 import showRevenue from '../components/revenue';
+import submitUpdateOrder from '../helpers/button-functions/submitUpdateOrder';
 
 const clickListener = () => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -74,6 +75,11 @@ const clickListener = () => {
       case 'submitOrder':
         e.preventDefault();
         submitNewOrder();
+        break;
+
+      case 'updateOrder':
+        e.preventDefault();
+        submitUpdateOrder(targetKey);
         break;
 
       case 'landingViewOrders':
