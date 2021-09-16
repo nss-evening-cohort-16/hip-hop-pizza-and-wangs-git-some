@@ -5,17 +5,16 @@ const getTotals = (recordArray) => {
   let sales = 0;
   let tips = 0;
   recordArray.forEach((record) => {
-    sales += record.order_total;
+    sales += record.orderTotal;
     tips += record.tip;
   });
-
   return `${sales}--${tips}`;
 };
 
 // Get Total Sales combined with Tips for a given array or sales records
 const getGrandTotal = (recordArray) => {
   const [sales, tips] = getTotals(recordArray).split('--');
-  return sales + tips;
+  return Number(sales) + Number(tips);
 };
 
 // Get records from a certain date

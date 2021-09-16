@@ -13,6 +13,7 @@ import {
   getOrders,
   deleteOrderWithItems
 } from '../helpers/data/order-data';
+import showRevenue from '../components/revenue';
 
 const clickListener = () => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -70,11 +71,10 @@ const clickListener = () => {
         break;
 
         // CREATE ORDER
-      case 'submitOrder': {
+      case 'submitOrder':
         e.preventDefault();
         submitNewOrder();
         break;
-      }
 
       case 'landingViewOrders':
         getOrders().then(showOrders);
@@ -85,6 +85,7 @@ const clickListener = () => {
         break;
 
       case 'landingRevenue':
+        showRevenue();
         break;
 
       default: break;

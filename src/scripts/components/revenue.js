@@ -1,8 +1,14 @@
-// const showRevenue = () => {
-//   const domString = '';
-//   document.querySelector('#revenueContainer').innerHTML = domString;
-// };
+import clearDom from '../helpers/clearDom';
+import { getAllSalesRecords } from '../helpers/data/sales-data';
+import { getGrandTotal } from '../helpers/data/sales-records';
 
-// export default showRevenue;
+const showRevenue = async () => {
+  clearDom();
+  const salesRecords = await getAllSalesRecords();
+  const grandTotal = getGrandTotal(salesRecords);
+  const domString = `<div id="totalContainer"><h3>TOTAL REVENUE: $${grandTotal}</div>`;
 
-// TODO: plan function for returning total revenue then display using showRevenue
+  document.querySelector('#revenueContainer').innerHTML = domString;
+};
+
+export default showRevenue;
