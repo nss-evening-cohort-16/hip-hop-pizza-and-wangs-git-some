@@ -17,7 +17,7 @@ const showOrders = (orderArr) => {
      <div id="order-buttons">
         <a href="#" class="order-detail-btn" id="order-detail-btn--${order.firebaseKey}">Details</a>
         <a href="#" class="order-edit-btn" id="order-edit-btn--${order.firebaseKey}">Edit</a>
-        ${order.isOpen ? `<a href="#" class="order-delete-btn" id="order-delete-btn--${order.firebaseKey}">Delete</a>` : ''}
+        <a href="#" class="order-delete-btn" id="order-delete-btn--${order.firebaseKey}">Delete</a>
    </div>
  </div>
  </div>`;
