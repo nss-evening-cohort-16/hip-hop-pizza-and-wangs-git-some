@@ -7,7 +7,7 @@ import addNewItem from '../helpers/button-functions/addNewItem';
 import closeOrderConfirm from '../helpers/button-functions/closeOrderButton';
 import updateItemConfirm from '../helpers/button-functions/updateItem';
 import { deleteItem, getItem } from '../helpers/data/item-data';
-import { deleteOrder, getSingleOrder } from '../helpers/data/order-data';
+import { deleteOrder, getSingleOrder, getOrders } from '../helpers/data/order-data';
 
 const clickListener = () => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -62,6 +62,17 @@ const clickListener = () => {
       case 'close-order-btn':
         e.preventDefault();
         closeOrderConfirm(targetKey);
+        break;
+
+      case 'landingViewOrders':
+        getOrders().then(showOrders);
+        break;
+
+      case 'landingCreateOrder':
+        addOrderForm();
+        break;
+
+      case 'landingRevenue':
         break;
 
       default: break;
