@@ -7,6 +7,7 @@ import addNewItem from '../helpers/button-functions/addNewItem';
 import closeOrderConfirm from '../helpers/button-functions/closeOrderButton';
 import { deleteItem } from '../helpers/data/item-data';
 import { deleteOrder, getSingleOrder, getOrders } from '../helpers/data/order-data';
+import showRevenue from '../components/revenue';
 
 const clickListener = () => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -67,6 +68,7 @@ const clickListener = () => {
         break;
 
       case 'landingRevenue':
+        showRevenue();
         break;
 
       default: break;
