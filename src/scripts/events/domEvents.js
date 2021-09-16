@@ -5,9 +5,20 @@ import showOrderDetails from '../components/orderDetails';
 import showOrders from '../components/orders';
 import addNewItem from '../helpers/button-functions/addNewItem';
 import closeOrderConfirm from '../helpers/button-functions/closeOrderButton';
+<<<<<<< HEAD
 import { deleteItem } from '../helpers/data/item-data';
 import { deleteOrder, getSingleOrder, getOrders } from '../helpers/data/order-data';
 import showRevenue from '../components/revenue';
+=======
+import updateItemConfirm from '../helpers/button-functions/updateItem';
+import { deleteItem, getItem } from '../helpers/data/item-data';
+import {
+  getSingleOrder,
+  getOrders,
+  deleteOrderWithItems,
+  createOrder
+} from '../helpers/data/order-data';
+>>>>>>> main
 
 const clickListener = () => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -28,7 +39,7 @@ const clickListener = () => {
       case 'order-delete-btn':
         // eslint-disable-next-line no-alert
         if (window.confirm('Are you sure you want to delete this order?')) {
-          deleteOrder(targetKey).then(showOrders);
+          deleteOrderWithItems(targetKey);
         }
         break;
 
@@ -42,6 +53,7 @@ const clickListener = () => {
         break;
 
       case 'item-edit-btn':
+        getItem(targetKey).then((item) => newItemForm(item.orderKey, item));
         break;
 
       case 'item-delete-btn':
@@ -53,11 +65,29 @@ const clickListener = () => {
         addNewItem(targetKey);
         break;
 
+      case 'updateItem':
+        updateItemConfirm(targetKey);
+        break;
+
       // Close Order Page
       case 'close-order-btn':
         e.preventDefault();
         closeOrderConfirm(targetKey);
         break;
+
+        // CREATE ORDER
+      case 'submitOrder': {
+        e.preventDefault();
+        const newOrder = {
+          name: document.querySelector('#customerName').value,
+          email: document.querySelector('#email').value,
+          phone: document.querySelector('#phone').value,
+          orderType: document.querySelector('#orderType').value,
+          date: new Date()
+        };
+        createOrder(newOrder).then((allOrders) => showOrders(allOrders));
+        break;
+      }
 
       case 'landingViewOrders':
         getOrders().then(showOrders);
