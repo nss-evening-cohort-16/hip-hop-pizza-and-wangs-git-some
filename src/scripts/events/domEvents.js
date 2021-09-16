@@ -78,7 +78,8 @@ const clickListener = () => {
           email: document.querySelector('#email').value,
           phone: document.querySelector('#phone').value,
           orderType: document.querySelector('#orderType').value,
-          date: new Date()
+          date: new Date(),
+          isOpen: true
         };
         createOrder(newOrder).then((allOrders) => showOrders(allOrders));
         break;
