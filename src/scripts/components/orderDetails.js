@@ -11,7 +11,7 @@ const orderTotal = (orderItems) => {
 const showOrderDetails = async (orderId) => {
   clearDom();
   const orderItems = await getOrderItems(orderId);
-  let domString = '';
+  let domString = '<div class="order-details-card">';
   orderItems.forEach((item) => {
     domString += `
       <div class="card item-card">
@@ -22,7 +22,8 @@ const showOrderDetails = async (orderId) => {
             <a href="#" id="item-edit-btn--${item.firebaseKey}">Edit</a>
             <a href="#" id="item-delete-btn--${item.firebaseKey}">Delete</a>
           </div>
-        </div>`;
+        </div>
+      </div>`;
   });
 
   domString += `<div class="order-total">TOTAL: $${orderTotal(orderItems)}</div>`;

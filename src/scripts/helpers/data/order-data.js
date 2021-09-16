@@ -1,5 +1,7 @@
 import axios from 'axios';
 import firebaseConfig from '../../../api/apiKeys';
+import showOrders from '../../components/orders';
+import { deleteItem, getOrderItems } from './item-data';
 
 const dbUrl = firebaseConfig.databaseURL;
 
@@ -38,6 +40,18 @@ const deleteOrder = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// DELETE ORDER AND ALL ITS ITEMS
+const deleteOrderWithItems = async (firebaseKey) => {
+  const orderItems = await getOrderItems(firebaseKey);
+  const deleteItemPromises = [];
+  orderItems.forEach((item) => {
+    deleteItemPromises.push(deleteItem(item.firebaseKey));
+  });
+  Promise.all(deleteItemPromises).then(() => {
+    deleteOrder(firebaseKey).then(showOrders);
+  });
+};
+
 // UPDATE ORDER
 const updateOrder = (orderObj) => new Promise((resolve, reject) => {
   axios.patch(`${dbUrl}/orders/${orderObj.firebaseKey}.json`, orderObj)
@@ -73,6 +87,7 @@ export {
   getOrders,
   updateOrder,
   deleteOrder,
+  deleteOrderWithItems,
   getSingleOrder,
   getOpenOrders,
   searchOrdersByName,
