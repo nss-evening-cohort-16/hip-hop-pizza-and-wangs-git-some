@@ -5,13 +5,13 @@ import showOrderDetails from '../components/orderDetails';
 import showOrders from '../components/orders';
 import addNewItem from '../helpers/button-functions/addNewItem';
 import closeOrderConfirm from '../helpers/button-functions/closeOrderButton';
+import submitNewOrder from '../helpers/button-functions/submitNewOrder';
 import updateItemConfirm from '../helpers/button-functions/updateItem';
 import { deleteItem, getItem } from '../helpers/data/item-data';
 import {
   getSingleOrder,
   getOrders,
-  deleteOrderWithItems,
-  createOrder
+  deleteOrderWithItems
 } from '../helpers/data/order-data';
 
 const clickListener = () => {
@@ -72,14 +72,7 @@ const clickListener = () => {
         // CREATE ORDER
       case 'submitOrder': {
         e.preventDefault();
-        const newOrder = {
-          name: document.querySelector('#customerName').value,
-          email: document.querySelector('#email').value,
-          phone: document.querySelector('#phone').value,
-          orderType: document.querySelector('#orderType').value,
-          date: new Date()
-        };
-        createOrder(newOrder).then((allOrders) => showOrders(allOrders));
+        submitNewOrder();
         break;
       }
 
