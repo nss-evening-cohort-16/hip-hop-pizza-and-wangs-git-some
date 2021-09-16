@@ -9,7 +9,7 @@ const startApp = (user) => {
   buildDom();
   renderNavbar();
   logoutButton(user.displayName);
-  navEvents();
+  navEvents(user);
   clickListener();
   landingPage(user);
 };
