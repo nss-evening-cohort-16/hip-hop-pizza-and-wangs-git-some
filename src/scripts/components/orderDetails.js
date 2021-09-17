@@ -11,7 +11,7 @@ const orderTotal = (orderItems) => {
 const showOrderDetails = async (orderId) => {
   clearDom();
   const orderItems = await getOrderItems(orderId);
-  let domString = '<div class="order-details-card">';
+  let domString = '<div class="order-details-container">';
   orderItems.forEach((item) => {
     domString += `
       <div class="card item-card">
@@ -19,14 +19,14 @@ const showOrderDetails = async (orderId) => {
           <h4 class="card-item">${item.name}</h4>
           <h4 class="card-price">PRICE: $${item.price}</h4>
           <div id="item-buttons">
-            <a href="#" id="item-edit-btn--${item.firebaseKey}">Edit</a>
-            <a href="#" id="item-delete-btn--${item.firebaseKey}">Delete</a>
+            <i class="btn btn-success far fa-edit" id="item-edit-btn--${item.firebaseKey}"></i>
+            <i class="btn btn-danger fa fa-trash-alt" id="item-delete-btn--${item.firebaseKey}"></i>
           </div>
         </div>
       </div>`;
   });
 
-  domString += `<div class="order-total">TOTAL: $${orderTotal(orderItems)}</div>`;
+  domString += `<div class="order-total"><b>TOTAL:</b> $${orderTotal(orderItems)}</div>`;
 
   const orderInfo = await getSingleOrder(orderId);
   if (orderInfo.isOpen) {

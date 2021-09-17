@@ -1,7 +1,6 @@
 const buildDom = () => {
   const domString = `
     <div id="mainContainer">
-      <div id="login-form-container"></div>
       <div id="navContainer"></div>
       <div id="revenueContainer"></div>
       <div id="cardContainer"></div>

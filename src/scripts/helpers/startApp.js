@@ -8,7 +8,7 @@ import landingPage from '../components/landingPage';
 const startApp = (user) => {
   buildDom();
   renderNavbar();
-  logoutButton(user.displayName);
+  logoutButton(user);
   navEvents(user);
   clickListener();
   submitListener();
