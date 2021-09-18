@@ -6,10 +6,12 @@ import loginPage from '../components/loginPage';
 
 const checkLoginStatus = () => {
   firebase.initializeApp(firebaseConfig);
-  firebase.auth().onAuthStateChanged((user) => {
+  firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
       // person is logged in do something...
-      startApp(user);
+      // user.getIdTokenResult().then((idTokenResult) => { isAdmin = idTokenResult.claims.admin; });
+      const isAdmin = await user.getIdTokenResult().then((idTokenResult) => idTokenResult.claims.admin);
+      startApp(user, isAdmin);
     } else {
       // person is NOT logged in
       loginPage();

@@ -19,11 +19,20 @@ const renderNavbar = () => {
             <a class="nav-link" href="#" id="createOrder">Create Order</a>
           </li>
           <li class="nav-item">
+<<<<<<< HEAD
           <a class="nav-link" href="#" id="viewShows">Upcoming Shows</a>
         </li>
         <li class="nav-item">
         <a class="nav-link" href="#" id="createNewShow">Create New Upcoming Show</a>
       </li>
+=======
+          <div id="dropdownContainer"><select class="form-select" aria-label="Open/Close Filter" id="orderStatusFilter">
+          <option value="open">Open</option>
+          <option value="closed">Closed</option>
+          <option value="all">All Orders</option>
+          </select></div>
+          </li>
+>>>>>>> main
         </ul>
         <div class="nav-item" id="logoutButton">
             </div>
