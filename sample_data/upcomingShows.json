@@ -1,0 +1,44 @@
+{
+  "-MTpcli73mfiIqW0lpPe": {
+    "showDate" : "",
+    "firebaseKey" : "-MTpcli73mfiIqW0lpPe",
+    "name" : "Mouserat",
+    "genre" : "Jazz",
+    "showType" : "in-person"
+  },
+  "-MTpcli9kmjpvbdr-ckb": {
+    "showDate" : "",
+    "firebaseKey" : "-MTpcli9kmjpvbdr-ckb",
+    "name" : "The Sugar Cubes",
+    "genre" : "Rock",
+    "showType" : "virtual"
+  },
+  "-MTpcliA_-GtWZHpb8sf": {
+    "showDate" : "",
+    "firebaseKey" : "-MTpcliA_-GtWZHpb8sf",
+    "name" : "Sav Hopper",
+    "genre" : "Indie",
+    "showType" : "in-person"
+  },
+  "-MTpcliCeUeUNMpZ-Kog": {
+    "showDate" : "",
+    "firebaseKey" : "-MTpcliCeUeUNMpZ-Kog",
+    "name" : "The Early Birds",
+    "genre" : "Rock",
+    "showType" : "virtual"
+  },
+  "-MTpcliDmrp15A1WIE4U": {
+    "showDate" : "",
+    "firebaseKey" : "-MTpcliDmrp15A1WIE4U",
+    "name" : "Davy Jones",
+    "genre" : "Pirate Rock",
+    "showType" : "virtual"
+  },
+  "-MTpcliGnhDSsyvILIoJ": {
+    "showDate" : "",
+    "firebaseKey" : "-MTpcliGnhDSsyvILIoJ",
+    "name" : "Coffeedrop",
+    "genre" : "Indie",
+    "showType" : "in-person"
+  }
+}
