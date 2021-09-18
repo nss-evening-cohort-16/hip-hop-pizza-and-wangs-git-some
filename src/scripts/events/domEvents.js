@@ -13,8 +13,9 @@ import {
   getOrders,
   deleteOrderWithItems
 } from '../helpers/data/order-data';
-import showRevenue from '../components/revenue';
+import { showRevenue } from '../components/revenue';
 import submitUpdateOrder from '../helpers/button-functions/submitUpdateOrder';
+import filterRevenue from '../helpers/button-functions/filterRevenue';
 
 const clickListener = () => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -104,6 +105,12 @@ const submitListener = () => {
       case 'updateOrder':
         e.preventDefault();
         submitUpdateOrder(targetKey);
+        break;
+
+      // Revenue page
+      case 'revenueDateSelect':
+        e.preventDefault();
+        filterRevenue();
         break;
 
       default: break;
