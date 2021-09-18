@@ -184,3 +184,18 @@ hr {
   margin: 0 .25em 0 .25em 0;
   width: 5em;
 }
+
+#upcomingShowContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.show-card {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 23%;
+  margin: .5em;
+  background-color: transparent;
+  background-image: linear-gradient(#e4e4e4, rgb(182, 182, 182));
+  color: black;
+}
