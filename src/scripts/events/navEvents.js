@@ -3,26 +3,24 @@ import landingPage from '../components/landingPage';
 import showOrders from '../components/orders';
 import { getFilteredOrders, searchOrders } from '../helpers/data/order-data';
 
-const navEvents = (user) => {
+const navEvents = (user, isAdmin) => {
   document.querySelector('#createOrder').addEventListener('click', addOrderForm);
 
   document.querySelector('#home').addEventListener('click', () => landingPage(user));
 
   document.querySelector('#viewOrders').addEventListener('click', () => {
-    const selectedFilter = document.querySelector('#orderStatusFilter').value;
-    getFilteredOrders(selectedFilter).then(showOrders);
+    getFilteredOrders(user.uid, isAdmin).then(showOrders);
   });
 
   document.querySelector('#searchBar').addEventListener('submit', (e) => {
     e.preventDefault();
     const searchValue = (document.querySelector('#searchInput').value).toLowerCase();
-    searchOrders(searchValue).then(showOrders);
+    searchOrders(searchValue, user.uid, isAdmin).then(showOrders);
     document.querySelector('#searchBar').reset();
   });
 
   document.querySelector('#dropdownContainer').addEventListener('change', () => {
-    const selectedFilter = document.querySelector('#orderStatusFilter').value;
-    getFilteredOrders(selectedFilter).then(showOrders);
+    getFilteredOrders(user.uid, isAdmin).then(showOrders);
   });
 };
 

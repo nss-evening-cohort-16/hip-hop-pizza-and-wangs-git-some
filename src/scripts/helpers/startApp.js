@@ -5,13 +5,13 @@ import { clickListener, submitListener } from '../events/domEvents';
 import navEvents from '../events/navEvents';
 import landingPage from '../components/landingPage';
 
-const startApp = (user) => {
+const startApp = (user, isAdmin) => {
   buildDom();
   renderNavbar();
   logoutButton(user);
-  navEvents(user);
-  clickListener();
-  submitListener();
+  navEvents(user, isAdmin);
+  clickListener(user.uid, isAdmin);
+  submitListener(user.uid, isAdmin);
   landingPage(user);
 };
 

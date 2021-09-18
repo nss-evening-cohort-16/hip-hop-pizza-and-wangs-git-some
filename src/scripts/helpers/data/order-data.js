@@ -6,20 +6,20 @@ import { deleteItem, getOrderItems } from './item-data';
 const dbUrl = firebaseConfig.databaseURL;
 
 // GET ALL ORDERS
-const getOrders = () => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/orders.json`)
+const getOrders = (uid, isAdmin) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/${isAdmin ? 'orders.json' : `orders.json?orderBy="uid"&equalTo="${uid}"`}`)
     .then((response) => resolve(Object.values(response.data)))
     .catch((error) => reject(error));
 });
 
 // CREATE ORDER
-const createOrder = (orderObj) => new Promise((resolve, reject) => {
+const createOrder = (orderObj, uid, isAdmin) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/orders.json`, orderObj)
     .then((response) => {
       const patchPayload = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/orders/${response.data.name}.json`, patchPayload)
         .then(() => {
-          getOrders().then(resolve);
+          getOrders(uid, isAdmin).then(resolve);
         });
     }).catch(reject);
 });
@@ -41,35 +41,36 @@ const deleteOrder = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 // DELETE ORDER AND ALL ITS ITEMS
-const deleteOrderWithItems = async (firebaseKey) => {
+const deleteOrderWithItems = async (firebaseKey, uid, isAdmin) => {
   const orderItems = await getOrderItems(firebaseKey);
   const deleteItemPromises = [];
   orderItems.forEach((item) => {
     deleteItemPromises.push(deleteItem(item.firebaseKey));
   });
   Promise.all(deleteItemPromises).then(() => {
-    deleteOrder(firebaseKey).then(showOrders);
+    deleteOrder(firebaseKey).then(getOrders(uid, isAdmin)).then(showOrders);
   });
 };
 
 // UPDATE ORDER
-const updateOrder = (orderObj) => new Promise((resolve, reject) => {
+const updateOrder = (orderObj, uid, isAdmin) => new Promise((resolve, reject) => {
   axios.patch(`${dbUrl}/orders/${orderObj.firebaseKey}.json`, orderObj)
-    .then(() => getOrders().then(resolve))
+    .then(() => getOrders(uid, isAdmin).then(resolve))
     .catch(reject);
 });
 
 // GET OPEN ORDERS
-const getFilteredOrders = async (selectedFilter) => {
-  const orders = await getOrders();
+const getFilteredOrders = async (uid, isAdmin) => {
+  const selectedFilter = document.querySelector('#orderStatusFilter').value;
+  const orders = await getOrders(uid, isAdmin);
   if (selectedFilter === 'open') return orders.filter((order) => order.isOpen);
   if (selectedFilter === 'closed') return orders.filter((order) => order.isOpen === false);
   return orders;
 };
 
 // SEARCH ORDERS BY NAME
-const searchOrders = async (searchValue) => {
-  const orders = await getOrders();
+const searchOrders = async (searchValue, uid, isAdmin) => {
+  const orders = await getOrders(uid, isAdmin);
   const searchedOrders = (orders).filter((order) => ((order.name).toLowerCase().includes(searchValue)) || ((order.phone).toLowerCase().includes(searchValue)));
   return searchedOrders;
 };
@@ -82,5 +83,5 @@ export {
   deleteOrderWithItems,
   getSingleOrder,
   getFilteredOrders,
-  searchOrders,
+  searchOrders
 };
