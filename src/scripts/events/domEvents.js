@@ -15,6 +15,11 @@ import {
 } from '../helpers/data/order-data';
 import showRevenue from '../components/revenue';
 import submitUpdateOrder from '../helpers/button-functions/submitUpdateOrder';
+import submitNewShow from '../helpers/button-functions/submitNewShow';
+import submitUpdateShow from '../helpers/button-functions/submitUpdateShow';
+import newShowForm from '../components/newShowForm';
+import { deleteShow, getOneShow } from '../helpers/data/upcoming-show-data';
+import showUpcomingShows from '../components/showUpcomingShows';
 
 const clickListener = () => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -68,6 +73,14 @@ const clickListener = () => {
         showRevenue();
         break;
 
+      case 'show-edit-btn':
+        getOneShow(targetKey).then((show) => newShowForm(show));
+        break;
+
+      case 'show-delete-btn':
+        deleteShow(targetKey).then(showUpcomingShows);
+        break;
+
       default: break;
     }
   });
@@ -104,6 +117,16 @@ const submitListener = () => {
       case 'updateOrder':
         e.preventDefault();
         submitUpdateOrder(targetKey);
+        break;
+
+      case 'submitShow':
+        e.preventDefault();
+        submitNewShow();
+        break;
+
+      case 'updateShow':
+        e.preventDefault();
+        submitUpdateShow(targetKey);
         break;
 
       default: break;

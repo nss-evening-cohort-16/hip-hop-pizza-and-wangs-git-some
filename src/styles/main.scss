@@ -185,6 +185,23 @@ hr {
   width: 5em;
 }
 
+#upcomingShowContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1em;
+  justify-content: center;
+}
+
+.show-card {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 23%;
+  margin: .5em;
+  background-color: transparent;
+  background-image: linear-gradient(#e4e4e4, rgb(182, 182, 182));
+  color: black;
+}
+
 #dropdownContainer {
   margin-left: .25em;
 }
