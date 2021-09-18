@@ -5,10 +5,10 @@ const signMeOut = () => {
   firebase.auth().signOut();
 };
 
-const logoutButton = (username) => {
+const logoutButton = (user) => {
   const domString = ` <div class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    ${username}
+    <img id="userImg" src="${user.photoURL}">${user.displayName}
   </a>
   <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
     <li><a class="dropdown-item" id="google-auth" href="#">Logout</a></li>
