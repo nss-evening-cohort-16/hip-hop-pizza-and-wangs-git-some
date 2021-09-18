@@ -14,7 +14,7 @@
     "firebaseKey" : "-Mj1r6KunmGK-NazXSzb",
     "isOpen" : false,
     "name" : "Hanan Deacon",
-    "orderType" : "email",
+    "orderType" : "in-person",
     "phone" : "222-222-2222"
   },
   "-Mj6wVFPqYAgrPZv2TqI": {
@@ -32,7 +32,7 @@
     "firebaseKey" : "-Mj6wbUCfnq8_9eo3SmE",
     "isOpen" : false,
     "name" : "Ace Keller",
-    "orderType" : "email",
+    "orderType" : "in-person",
     "phone" : "444-444-4444"
   },
   "-Mj6uYvPYwOaK_id_-i7": {
@@ -50,7 +50,7 @@
     "firebaseKey" : "-Mj6wzuaftOOz46I9Wap",
     "isOpen" : false,
     "name" : "Zoey Wilde",
-    "orderType" : "email",
+    "orderType" : "in-person",
     "phone" : "666-666-6666"
   },
   "-Mj6xWlvDdSVKhRGsrEu": {
@@ -68,7 +68,7 @@
     "firebaseKey" : "-Mj6y1TqlvepN8fb7UX7",
     "isOpen" : false,
     "name" : "Teagan Dickinson",
-    "orderType" : "email",
+    "orderType" : "in-person",
     "phone" : "888-888-8888"
   },
   "-Mj6z8cmxz10-2KSpWrf": {
@@ -86,7 +86,7 @@
     "firebaseKey" : "-Mj6zFI4pj0MOvS3pfj5",
     "isOpen" : false,
     "name" : "Frankie Rivas",
-    "orderType" : "email",
+    "orderType" : "in-person",
     "phone" : "101-101-1010"
   }
 }
