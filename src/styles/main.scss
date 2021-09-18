@@ -187,6 +187,8 @@ hr {
 
 #upcomingShowContainer {
   display: flex;
+  flex-wrap: wrap;
+  margin: 1em;
   justify-content: center;
 }
 
