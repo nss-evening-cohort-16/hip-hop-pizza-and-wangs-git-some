@@ -1,7 +1,7 @@
 import addOrderForm from '../components/addOrderForm';
 import landingPage from '../components/landingPage';
 import showOrders from '../components/orders';
-import { getOrders } from '../helpers/data/order-data';
+import { getOrders, searchOrders } from '../helpers/data/order-data';
 
 const navEvents = (user) => {
   document.querySelector('#createOrder').addEventListener('click', addOrderForm);
@@ -10,6 +10,13 @@ const navEvents = (user) => {
 
   document.querySelector('#viewOrders').addEventListener('click', () => {
     getOrders().then(showOrders);
+  });
+
+  document.querySelector('#searchBar').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const searchValue = (document.querySelector('#searchInput').value).toLowerCase();
+    searchOrders(searchValue).then(showOrders);
+    document.querySelector('#searchBar').reset();
   });
 };
 
