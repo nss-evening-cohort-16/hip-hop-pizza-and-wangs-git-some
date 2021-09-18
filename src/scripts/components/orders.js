@@ -4,20 +4,21 @@ const showOrders = (orderArr) => {
   clearDom();
   let domString = '';
   orderArr.forEach((order) => {
+    const date = `${new Date(order.date).toDateString()}<br>(${new Date(order.date).toLocaleTimeString()})`;
     domString += `<div class="card order-card">
    <div class="card-body">
      <h4 class="card-title">${order.name}</h4>
      <ul id="order info">
-        <li>${order.isOpen ? 'Order Status: Open' : 'Order Status: Closed'}</li>
-        <li>Phone: ${order.phone || 'no phone provided'}</li>
-        <li>Email: ${order.email || 'no email provided'}</li>
-        <li>Order Type: ${order.orderType}</li>
-        <li>Time placed: ${order.date}</li>
+        <li>${order.isOpen ? 'Order Status: Open' : 'Order Status: Closed'}</li><hr>
+        <li>Phone: ${order.phone || 'no phone provided'}</li><hr>
+        <li>Email: ${order.email || 'no email provided'}</li><hr>
+        <li>Order Type: ${order.orderType}</li><hr>
+        <li>Time placed: ${date}</li>
      </ul>
      <div id="order-buttons">
-        <a href="#" class="order-detail-btn" id="order-detail-btn--${order.firebaseKey}">Details</a>
-        <a href="#" class="order-edit-btn" id="order-edit-btn--${order.firebaseKey}">Edit</a>
-        <a href="#" class="order-delete-btn" id="order-delete-btn--${order.firebaseKey}">Delete</a>
+        <i class="btn btn-primary fa fa-list-alt" id="order-detail-btn--${order.firebaseKey}"></i>
+        <i class="btn btn-success far fa-edit" id="order-edit-btn--${order.firebaseKey}"></i>
+        <i class="btn btn-danger fa fa-trash-alt" id="order-delete-btn--${order.firebaseKey}"></i>
    </div>
  </div>
  </div>`;

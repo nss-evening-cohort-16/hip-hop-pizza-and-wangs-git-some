@@ -1,7 +1,9 @@
+import navLogo from '../../assets/Hip-Hop, Pizza, and Waaangs-logos_transparent.png';
+
 const renderNavbar = () => {
-  document.querySelector('#navContainer').innerHTML = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  document.querySelector('#navContainer').innerHTML = `<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" id="navLogo" href="#"><img src="${navLogo}"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
