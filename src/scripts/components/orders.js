@@ -1,8 +1,13 @@
 import clearDom from '../helpers/clearDom';
 
+const filterDropdown = () => {
+  document.querySelector('#dropdownContainer').style.display = 'block';
+};
+
 const showOrders = (orderArr) => {
   clearDom();
   let domString = '';
+  filterDropdown();
   orderArr.forEach((order) => {
     const date = `${new Date(order.date).toDateString()}<br>(${new Date(order.date).toLocaleTimeString()})`;
     domString += `<div class="card order-card">

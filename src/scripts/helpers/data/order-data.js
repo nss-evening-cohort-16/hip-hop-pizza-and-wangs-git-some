@@ -60,13 +60,12 @@ const updateOrder = (orderObj) => new Promise((resolve, reject) => {
 });
 
 // GET OPEN ORDERS
-const getOpenOrders = () => new Promise((resolve, reject) => {
-  getOrders()
-    .then((ordersArray) => {
-      const openOrders = ordersArray.filter((order) => order.isOpen);
-      resolve(openOrders);
-    }).catch(reject);
-});
+const getFilteredOrders = async (selectedFilter) => {
+  const orders = await getOrders();
+  if (selectedFilter === 'open') return orders.filter((order) => order.isOpen);
+  if (selectedFilter === 'closed') return orders.filter((order) => order.isOpen === false);
+  return orders;
+};
 
 // SEARCH ORDERS BY NAME
 const searchOrders = async (searchValue) => {
@@ -82,6 +81,6 @@ export {
   deleteOrder,
   deleteOrderWithItems,
   getSingleOrder,
-  getOpenOrders,
+  getFilteredOrders,
   searchOrders,
 };
