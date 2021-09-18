@@ -16,6 +16,7 @@ const navEvents = (user) => {
     e.preventDefault();
     const searchValue = (document.querySelector('#searchInput').value).toLowerCase();
     searchOrders(searchValue).then(showOrders);
+    document.querySelector('#searchBar').reset();
   });
 };
 
