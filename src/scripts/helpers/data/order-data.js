@@ -69,18 +69,11 @@ const getOpenOrders = () => new Promise((resolve, reject) => {
 });
 
 // SEARCH ORDERS BY NAME
-const searchOrdersByName = (searchValue) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/orders/.json?orderBy="name"&equalTo="${searchValue}"`)
-    .then((response) => resolve(Object.values(response.data)))
-    .catch(reject);
-});
-
-// SEARCH ORDERS BY PHONE NUMBER
-const searchOrdersByPhone = (searchValue) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/orders/.json?orderBy="phone"&equalTo="${searchValue}"`)
-    .then((response) => resolve(Object.values(response.data)))
-    .catch(reject);
-});
+const searchOrders = async (searchValue) => {
+  const orders = await getOrders();
+  const searchedOrders = (orders).filter((order) => ((order.name).toLowerCase().includes(searchValue)) || ((order.phone).toLowerCase().includes(searchValue)));
+  return searchedOrders;
+};
 
 export {
   createOrder,
@@ -90,6 +83,5 @@ export {
   deleteOrderWithItems,
   getSingleOrder,
   getOpenOrders,
-  searchOrdersByName,
-  searchOrdersByPhone
+  searchOrders,
 };
