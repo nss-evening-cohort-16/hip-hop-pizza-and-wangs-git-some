@@ -4,6 +4,7 @@ import showOrders from '../components/orders';
 import { getOrders, searchOrders } from '../helpers/data/order-data';
 import { getAllShows } from '../helpers/data/upcoming-show-data';
 import showUpcomingShows from '../components/showUpcomingShows';
+import newShowForm from '../components/newShowForm';
 
 const navEvents = (user) => {
   document.querySelector('#createOrder').addEventListener('click', addOrderForm);
@@ -16,6 +17,10 @@ const navEvents = (user) => {
 
   document.querySelector('#viewShows').addEventListener('click', () => {
     getAllShows().then(showUpcomingShows);
+  });
+
+  document.querySelector('#createNewShow').addEventListener('click', () => {
+    newShowForm();
   });
 
   document.querySelector('#searchBar').addEventListener('submit', (e) => {

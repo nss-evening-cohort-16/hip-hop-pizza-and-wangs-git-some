@@ -7,9 +7,10 @@ const showUpcomingShows = (showArr) => {
     domString += `<div class="card show-card">
     <div class="card-body">
       <h4 class="card-title">${show.name}</h4>
+      <img src=${show.img} alt=${show.name} style="width: 250px; height: 200px;">
       <ul id="show info">
-         <li>Show Date: ${show.showDate || 'no date provided'}</li><hr>
-         <li>Genre: ${show.genre || 'no email provided'}</li><hr>
+         <li>Show Date: ${show.showDate}</li><hr>
+         <li>Genre: ${show.genre}</li><hr>
          <li>Type of Show: ${show.showType}</li><hr>
       </ul>
       <div id="order-buttons">

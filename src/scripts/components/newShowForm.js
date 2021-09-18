@@ -1,4 +1,5 @@
 import clearDom from '../helpers/clearDom';
+import selectShowType from './selectShowType';
 
 const newShowForm = (obj = {}) => {
   clearDom();
@@ -13,16 +14,18 @@ const newShowForm = (obj = {}) => {
     <input type="text" required class="form-control" id="showGenre" aria-describedby="showGenre" value="${obj.genre || ''}" placeholder="Enter Show Genre" required>
   </div>
   <div class="mb-3">
-    <label for="showDate" class="form-label">Show Date<span class="requiredItem">*</span></label>
-    <input type="text" required class="form-control" id="showDate" aria-describedby="showDate" value="${obj.showDate || ''}" placeholder="Enter Show Date" required>
+    <label for="showImg" class="form-label">Show Picture<span class="requiredItem">*</span></label>
+    <input type="text" required class="form-control" id="showImg" aria-describedby="showImg" value="${obj.img || ''}" placeholder="Enter Show Image Link" required>
   </div>
   <div class="mb-3">
-    <label for="showType" class="form-label">Show Type</label>
-    <input type="number" required class="form-control" id="showType" aria-describedby="showType" value="${obj.showType || ''}" placeholder="Enter Show Type" required>
+    <label for="showDate" class="form-label">Show Date<span class="requiredItem">*</span></label>
+    <input type="date" required class="form-control" id="showDate" aria-describedby="showDate" value="${obj.showDate || ''}" placeholder="Enter Show Date">
   </div>
+  <div class="form-group" id="select-showType"></div>
   <button type="submit" class="btn btn-success" id="showSubmitBtn">${obj.firebaseKey ? 'Edit Show' : 'Submit Show'}</button>
 </form>
   `;
+  selectShowType(`${obj.showType || ''}`);
 };
 
 export default newShowForm;

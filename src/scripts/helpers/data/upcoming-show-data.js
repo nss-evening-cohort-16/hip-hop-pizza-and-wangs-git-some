@@ -38,9 +38,17 @@ const deleteShow = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// UPDATE SHOW
+const updateShow = (showObj) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/upcoming-shows/${showObj.firebaseKey}.json`, showObj)
+    .then(() => getAllShows().then(resolve))
+    .catch(reject);
+});
+
 export {
   getAllShows,
   createShow,
   getOneShow,
-  deleteShow
+  deleteShow,
+  updateShow
 };
