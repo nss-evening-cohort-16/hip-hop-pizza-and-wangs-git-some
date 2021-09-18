@@ -10,8 +10,8 @@ import updateItemConfirm from '../helpers/button-functions/updateItem';
 import { deleteItem, getItem } from '../helpers/data/item-data';
 import {
   getSingleOrder,
-  getOrders,
-  deleteOrderWithItems
+  deleteOrderWithItems,
+  getFilteredOrders
 } from '../helpers/data/order-data';
 import { showRevenue } from '../components/revenue';
 import submitUpdateOrder from '../helpers/button-functions/submitUpdateOrder';
@@ -20,7 +20,7 @@ import filterRevenue from '../helpers/button-functions/filterRevenue';
 const clickListener = () => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
     const [targetID, targetKey] = e.target.id.split('--');
-
+    const selectedFilter = document.querySelector('#orderStatusFilter').value;
     console.warn(`ID: ${targetID}, Key: ${targetKey}`);
 
     switch (targetID) {
@@ -58,7 +58,7 @@ const clickListener = () => {
         break;
 
       case 'landingViewOrders':
-        getOrders().then(showOrders);
+        getFilteredOrders(selectedFilter).then(showOrders);
         break;
 
       case 'landingCreateOrder':

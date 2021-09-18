@@ -18,11 +18,18 @@ const renderNavbar = () => {
           <li class="nav-item">
             <a class="nav-link" href="#" id="createOrder">Create Order</a>
           </li>
+          <li class="nav-item">
+          <div id="dropdownContainer"><select class="form-select" aria-label="Open/Close Filter" id="orderStatusFilter">
+          <option value="open">Open</option>
+          <option value="closed">Closed</option>
+          <option value="all">All Orders</option>
+          </select></div>
+          </li>
         </ul>
         <div class="nav-item" id="logoutButton">
             </div>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <form class="d-flex" id="searchBar">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>

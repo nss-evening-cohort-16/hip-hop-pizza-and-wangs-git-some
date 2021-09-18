@@ -60,27 +60,19 @@ const updateOrder = (orderObj) => new Promise((resolve, reject) => {
 });
 
 // GET OPEN ORDERS
-const getOpenOrders = () => new Promise((resolve, reject) => {
-  getOrders()
-    .then((ordersArray) => {
-      const openOrders = ordersArray.filter((order) => order.isOpen);
-      resolve(openOrders);
-    }).catch(reject);
-});
+const getFilteredOrders = async (selectedFilter) => {
+  const orders = await getOrders();
+  if (selectedFilter === 'open') return orders.filter((order) => order.isOpen);
+  if (selectedFilter === 'closed') return orders.filter((order) => order.isOpen === false);
+  return orders;
+};
 
 // SEARCH ORDERS BY NAME
-const searchOrdersByName = (searchValue) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/orders/.json?orderBy="name"&equalTo="${searchValue}"`)
-    .then((response) => resolve(Object.values(response.data)))
-    .catch(reject);
-});
-
-// SEARCH ORDERS BY PHONE NUMBER
-const searchOrdersByPhone = (searchValue) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/orders/.json?orderBy="phone"&equalTo="${searchValue}"`)
-    .then((response) => resolve(Object.values(response.data)))
-    .catch(reject);
-});
+const searchOrders = async (searchValue) => {
+  const orders = await getOrders();
+  const searchedOrders = (orders).filter((order) => ((order.name).toLowerCase().includes(searchValue)) || ((order.phone).toLowerCase().includes(searchValue)));
+  return searchedOrders;
+};
 
 export {
   createOrder,
@@ -89,7 +81,6 @@ export {
   deleteOrder,
   deleteOrderWithItems,
   getSingleOrder,
-  getOpenOrders,
-  searchOrdersByName,
-  searchOrdersByPhone
+  getFilteredOrders,
+  searchOrders,
 };

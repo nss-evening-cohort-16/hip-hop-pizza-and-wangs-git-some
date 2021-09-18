@@ -185,4 +185,13 @@ hr {
   width: 5em;
 }
 
+#dropdownContainer {
+  margin-left: .25em;
+}
+
+#orderStatusFilter {
+  background-color: #212529;
+  color: #9b9d9e;
+}
+
 @import 'revenue.scss';
