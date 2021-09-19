@@ -1,10 +1,214 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 
+$box-bg: rgba(78, 78, 78, 0.603);
 
 body {
-  background-color: antiquewhite;
-  color: brown;
+  color: black;
   text-align: center;
-  margin-top: 100px;
+  background-image: url(https://i.imgur.com/wNzHCkE.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  font-weight: 600;
 }
+
+#logButton {
+  align-self: right;
+  color: #9b9d9e;
+}
+
+#logButton img {
+  width: 90%;
+}
+
+#logButton a:link {
+  color: #9b9d9e;
+}
+
+#logButton a:hover {
+  color: #c6c8c9;
+}
+
+#logButton a:visited {
+  color: #9b9d9e;
+}
+
+#cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1em;
+  justify-content: center;
+}
+
+.order-card {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 23%;
+  margin: .5em;
+  background-color: transparent;
+  background-image: linear-gradient(#e4e4e4, rgb(182, 182, 182));
+  color: black;
+}
+
+.order-card ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.requiredItem {
+  color: red;
+}
+
+.order-details-card {
+  display: flex;
+  flex-direction: column;
+}
+
+#landingContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.landingBtnContainer {
+  background-color: rgba(78, 78, 78, 0.603);
+  width: 25%;
+  padding: 1em 0 1em 0;
+  border: 1px transparent;
+  border-radius: 6px;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+.landingBtnContainer {
+  flex-basis: 30%;
+}
+
+.landingBtnContainer button {
+  margin: .25em;
+}
+
+.loginBtnContainer {
+  margin-top: 24%;
+  background-color: $box-bg;
+  padding: 1em 0 1em 0;
+}
+
+#navLogo {
+  padding: 0;
+  width: 5em;
+}
+
+#navLogo img {
+  width: 100%;
+}
+
+#logoutButton a:link {
+  color: #9b9d9e;
+}
+
+#logoutButton a:hover {
+  color: #c6c8c9;
+}
+
+#logoutButton a:visited {
+  color: #9b9d9e;
+}
+
+#userImg {
+  border: 1px transparent;
+  border-radius: 200px;
+  width: 2em;
+  margin-right: .5em;
+}
+
+.order-details-container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+}
+
+.item-card {
+  margin: .25em 0 .25em 0;
+  background-color: transparent;
+  background-image: linear-gradient(#e4e4e4, rgb(182, 182, 182));
+}
+
+.order-total {
+  width: 35%;
+  align-self: center;
+  background-color: rgb(36, 196, 97);
+  margin: .5em 0 .5em 0;
+  border: 1px transparent;
+  border-radius: 3px;
+}
+
+#formContainer {
+  display: flex;
+  justify-content: center;
+  margin: 1em 2em 1em 2em;
+}
+
+#formContainer form {
+  width: 100%;
+  background-image: linear-gradient(#e4e4e4, rgb(182, 182, 182));
+  border: 1px transparent;
+  border-radius: 6px;
+  padding: .5em;
+  font-weight: 600;
+}
+
+#formContainer button {
+  margin-top: .5em;
+}
+
+hr {
+  margin-top: .25em;
+  margin-bottom: .25em;
+}
+
+#order-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#order-buttons a {
+  color: black;
+  text-decoration: none;
+}
+
+#item-buttons i {
+  margin: 0 .25em 0 .25em 0;
+  width: 5em;
+}
+
+#upcomingShowContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1em;
+  justify-content: center;
+}
+
+.show-card {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 23%;
+  margin: .5em;
+  background-color: transparent;
+  background-image: linear-gradient(#e4e4e4, rgb(182, 182, 182));
+  color: black;
+}
+
+#dropdownContainer {
+  margin-left: .25em;
+}
+
+#orderStatusFilter {
+  background-color: #212529;
+  color: #9b9d9e;
+}
+
+@import 'revenue.scss';
