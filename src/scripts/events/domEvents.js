@@ -13,8 +13,9 @@ import {
   deleteOrderWithItems,
   getFilteredOrders
 } from '../helpers/data/order-data';
-import showRevenue from '../components/revenue';
+import { showRevenue } from '../components/revenue';
 import submitUpdateOrder from '../helpers/button-functions/submitUpdateOrder';
+import filterRevenue from '../helpers/button-functions/filterRevenue';
 import submitNewShow from '../helpers/button-functions/submitNewShow';
 import submitUpdateShow from '../helpers/button-functions/submitUpdateShow';
 import newShowForm from '../components/newShowForm';
@@ -119,6 +120,11 @@ const submitListener = () => {
         submitUpdateOrder(targetKey);
         break;
 
+      // Revenue page
+      case 'revenueDateSelect':
+        e.preventDefault();
+        filterRevenue();
+        
       case 'submitShow':
         e.preventDefault();
         submitNewShow();
