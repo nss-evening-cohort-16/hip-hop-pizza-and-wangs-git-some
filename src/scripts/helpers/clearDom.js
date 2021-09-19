@@ -4,6 +4,7 @@ const clearDom = () => {
   document.querySelector('#landingContainer').innerHTML = '';
   document.querySelector('#revenueContainer').innerHTML = '';
   document.querySelector('#dropdownContainer').style.display = 'none';
+  document.querySelector('#upcomingShowContainer').innerHTML = '';
 };
 
 export default clearDom;
