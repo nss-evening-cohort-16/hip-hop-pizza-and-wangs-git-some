@@ -3,15 +3,15 @@ import { getOrderItems } from '../data/item-data';
 import { createRecord } from '../data/sales-data';
 import showOrders from '../../components/orders';
 
-const closeOrder = (orderKey) => {
+const closeOrder = (orderKey, uid, isAdmin) => {
   const orderPatch = {
     firebaseKey: orderKey,
     isOpen: false
   };
-  updateOrder(orderPatch).then(showOrders);
+  updateOrder(orderPatch, uid, isAdmin).then(showOrders);
 };
 
-const closeOrderConfirm = (orderKey) => {
+const closeOrderConfirm = (orderKey, uid, isAdmin) => {
   getSingleOrder(orderKey).then((order) => {
     getOrderItems(orderKey).then((items) => {
       let orderTotal = 0;
@@ -28,7 +28,7 @@ const closeOrderConfirm = (orderKey) => {
         paymentType,
         orderType: order.orderType
       };
-      createRecord(newRecord).then(() => closeOrder(orderKey));
+      createRecord(newRecord).then(() => closeOrder(orderKey, uid, isAdmin));
     });
   });
 };

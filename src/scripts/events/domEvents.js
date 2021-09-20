@@ -22,10 +22,9 @@ import newShowForm from '../components/newShowForm';
 import { deleteShow, getOneShow } from '../helpers/data/upcoming-show-data';
 import showUpcomingShows from '../components/showUpcomingShows';
 
-const clickListener = () => {
+const clickListener = (uid, isAdmin) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
     const [targetID, targetKey] = e.target.id.split('--');
-    const selectedFilter = document.querySelector('#orderStatusFilter').value;
     console.warn(`ID: ${targetID}, Key: ${targetKey}`);
 
     switch (targetID) {
@@ -41,7 +40,7 @@ const clickListener = () => {
       case 'order-delete-btn':
         // eslint-disable-next-line no-alert
         if (window.confirm('Are you sure you want to delete this order?')) {
-          deleteOrderWithItems(targetKey);
+          deleteOrderWithItems(targetKey, uid, isAdmin);
         }
         break;
 
@@ -63,7 +62,7 @@ const clickListener = () => {
         break;
 
       case 'landingViewOrders':
-        getFilteredOrders(selectedFilter).then(showOrders);
+        getFilteredOrders(uid, isAdmin).then(showOrders);
         break;
 
       case 'landingCreateOrder':
@@ -87,7 +86,7 @@ const clickListener = () => {
   });
 };
 
-const submitListener = () => {
+const submitListener = (uid, isAdmin) => {
   document.querySelector('#mainContainer').addEventListener('submit', (e) => {
     const [targetID, targetKey] = e.target.id.split('--');
 
@@ -106,25 +105,26 @@ const submitListener = () => {
       // Close Order Page
       case 'closeOrderForm':
         e.preventDefault();
-        closeOrderConfirm(targetKey);
+        closeOrderConfirm(targetKey, uid, isAdmin);
         break;
 
         // CREATE ORDER
       case 'submitOrder':
         e.preventDefault();
-        submitNewOrder();
+        submitNewOrder(uid, isAdmin);
         break;
 
       case 'updateOrder':
         e.preventDefault();
-        submitUpdateOrder(targetKey);
+        submitUpdateOrder(targetKey, uid, isAdmin);
         break;
 
       // Revenue page
       case 'revenueDateSelect':
         e.preventDefault();
         filterRevenue();
-        
+        break;
+
       case 'submitShow':
         e.preventDefault();
         submitNewShow();
