@@ -22,7 +22,7 @@ const closeOrderConfirm = (orderKey) => {
       const paymentType = document.querySelector('#paymentType').value;
 
       const newRecord = {
-        date: order.date,
+        date: new Date(order.date).toLocaleDateString('en-US', { timeZone: 'Etc/GMT' }),
         orderTotal,
         tip,
         paymentType,

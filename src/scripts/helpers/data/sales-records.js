@@ -8,18 +8,24 @@ const getTotals = (recordArray) => {
     sales += record.orderTotal;
     tips += record.tip;
   });
-  return `${sales}--${tips}`;
+  return [sales, tips];
 };
 
 // Get Total Sales combined with Tips for a given array or sales records
 const getGrandTotal = (recordArray) => {
-  const [sales, tips] = getTotals(recordArray).split('--');
+  const [sales, tips] = getTotals(recordArray);
   return Number(sales) + Number(tips);
 };
 
 // Get records from a certain date
 const getRecordsByDate = (date) => {
   getAllSalesRecords().then((records) => records.filter((record) => record.date === date));
+};
+
+// Get records from a date range
+const getRecordsByDateRange = async (datesArray) => {
+  const filteredRecords = await getAllSalesRecords().then((records) => records.filter((record) => datesArray.includes(record.date)));
+  return filteredRecords;
 };
 
 // Get all sales records of a certain payment type
@@ -36,6 +42,7 @@ export {
   getTotals,
   getGrandTotal,
   getRecordsByDate,
+  getRecordsByDateRange,
   getRecordsByPaymentType,
   getRecordsByOrderType
 };
