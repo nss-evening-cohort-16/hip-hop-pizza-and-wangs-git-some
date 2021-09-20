@@ -123,7 +123,8 @@ const submitListener = (uid, isAdmin) => {
       case 'revenueDateSelect':
         e.preventDefault();
         filterRevenue();
-        
+        break;
+
       case 'submitShow':
         e.preventDefault();
         submitNewShow();
