@@ -12,6 +12,15 @@ const getOrders = (uid, isAdmin) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+// GET OPEN ORDERS
+const getFilteredOrders = async (uid, isAdmin) => {
+  const selectedFilter = document.querySelector('#orderStatusFilter').value;
+  const orders = await getOrders(uid, isAdmin);
+  if (selectedFilter === 'open') return orders.filter((order) => order.isOpen);
+  if (selectedFilter === 'closed') return orders.filter((order) => order.isOpen === false);
+  return orders;
+};
+
 // CREATE ORDER
 const createOrder = (orderObj, uid, isAdmin) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/orders.json`, orderObj)
@@ -19,7 +28,7 @@ const createOrder = (orderObj, uid, isAdmin) => new Promise((resolve, reject) =>
       const patchPayload = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/orders/${response.data.name}.json`, patchPayload)
         .then(() => {
-          getOrders(uid, isAdmin).then(resolve);
+          getFilteredOrders(uid, isAdmin).then(resolve);
         });
     }).catch(reject);
 });
@@ -32,10 +41,10 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 // DELETE ORDER
-const deleteOrder = (firebaseKey) => new Promise((resolve, reject) => {
+const deleteOrder = (firebaseKey, uid, isAdmin) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/orders/${firebaseKey}.json`)
     .then(() => {
-      getOrders().then(resolve);
+      getFilteredOrders(uid, isAdmin).then(resolve);
     })
     .catch(reject);
 });
@@ -48,25 +57,16 @@ const deleteOrderWithItems = async (firebaseKey, uid, isAdmin) => {
     deleteItemPromises.push(deleteItem(item.firebaseKey));
   });
   Promise.all(deleteItemPromises).then(() => {
-    deleteOrder(firebaseKey).then(getOrders(uid, isAdmin)).then(showOrders);
+    deleteOrder(firebaseKey, uid, isAdmin).then(showOrders);
   });
 };
 
 // UPDATE ORDER
 const updateOrder = (orderObj, uid, isAdmin) => new Promise((resolve, reject) => {
   axios.patch(`${dbUrl}/orders/${orderObj.firebaseKey}.json`, orderObj)
-    .then(() => getOrders(uid, isAdmin).then(resolve))
+    .then(() => getFilteredOrders(uid, isAdmin).then(resolve))
     .catch(reject);
 });
-
-// GET OPEN ORDERS
-const getFilteredOrders = async (uid, isAdmin) => {
-  const selectedFilter = document.querySelector('#orderStatusFilter').value;
-  const orders = await getOrders(uid, isAdmin);
-  if (selectedFilter === 'open') return orders.filter((order) => order.isOpen);
-  if (selectedFilter === 'closed') return orders.filter((order) => order.isOpen === false);
-  return orders;
-};
 
 // SEARCH ORDERS BY NAME
 const searchOrders = async (searchValue, uid, isAdmin) => {
