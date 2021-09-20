@@ -126,6 +126,7 @@ const submitListener = () => {
         filterRevenue();
         break;
 
+      // UPCOMING SHOWS STRETCH PGS
       case 'submitShow':
         e.preventDefault();
         submitNewShow();
