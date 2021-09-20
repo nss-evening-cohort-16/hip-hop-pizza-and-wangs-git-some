@@ -124,7 +124,8 @@ const submitListener = () => {
       case 'revenueDateSelect':
         e.preventDefault();
         filterRevenue();
-        
+        break;
+
       case 'submitShow':
         e.preventDefault();
         submitNewShow();
