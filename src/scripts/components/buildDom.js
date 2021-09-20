@@ -6,6 +6,7 @@ const buildDom = () => {
       <div id="cardContainer"></div>
       <div id="formContainer"></div>
       <div id="landingContainer"></div>
+      <div id="upcomingShowContainer"></div>
     <div>`;
   document.querySelector('#app').innerHTML = domString;
 };
