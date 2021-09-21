@@ -6,7 +6,7 @@ import showOrders from '../../components/orders';
 const closeOrder = (orderKey, uid, isAdmin) => {
   const orderPatch = {
     firebaseKey: orderKey,
-    isOpen: false
+    isOpen: 'closed'
   };
   updateOrder(orderPatch, uid, isAdmin).then(showOrders);
 };

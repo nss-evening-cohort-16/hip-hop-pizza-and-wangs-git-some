@@ -8,7 +8,7 @@ const submitNewOrder = (uid, isAdmin) => {
     phone: document.querySelector('#phone').value,
     orderType: document.querySelector('#orderType').value,
     date: new Date().toUTCString(),
-    isOpen: true,
+    isOpen: 'open',
     uid
   };
   createOrder(newOrder, uid, isAdmin).then(showOrders);

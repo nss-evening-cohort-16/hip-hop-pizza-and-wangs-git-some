@@ -21,6 +21,7 @@ import submitUpdateShow from '../helpers/button-functions/submitUpdateShow';
 import newShowForm from '../components/newShowForm';
 import { deleteShow, getOneShow } from '../helpers/data/upcoming-show-data';
 import showUpcomingShows from '../components/showUpcomingShows';
+import addToCart from '../helpers/button-functions/addToCart';
 
 const clickListener = (uid, isAdmin) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -79,6 +80,10 @@ const clickListener = (uid, isAdmin) => {
 
       case 'show-delete-btn':
         deleteShow(targetKey).then(showUpcomingShows);
+        break;
+
+      case 'addToCart':
+        addToCart(targetKey);
         break;
 
       default: break;

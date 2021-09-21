@@ -53,11 +53,22 @@ const updateItem = (firebaseKey, payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const addItemFromMenu = async (itemKey, orderKey) => {
+  const itemToAdd = await getItem(itemKey);
+  const item = {
+    name: itemToAdd.name,
+    price: itemToAdd.price,
+    orderKey
+  };
+  createItem(item);
+};
+
 export {
   getAllItems,
   getItem,
   getOrderItems,
   createItem,
   deleteItem,
-  updateItem
+  updateItem,
+  addItemFromMenu,
 };
