@@ -9,7 +9,7 @@ const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
       // person is logged in do something...
-      const isAdmin = await user.getIdTokenResult().then((idTokenResult) => idTokenResult.claims);
+      const isAdmin = await user.getIdTokenResult().then((idTokenResult) => idTokenResult.claims.admin);
       startApp(user, isAdmin);
     } else {
       // person is NOT logged in
