@@ -18,6 +18,10 @@ const renderNavbar = () => {
           <li class="nav-item">
             <a class="nav-link" href="#" id="createOrder">Create Order</a>
           </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="viewMenu">View Menu</a>
+          </li>
           <li class="nav-item">
           <a class="nav-link" href="#" id="viewShows">Upcoming Shows</a>
         </li>
