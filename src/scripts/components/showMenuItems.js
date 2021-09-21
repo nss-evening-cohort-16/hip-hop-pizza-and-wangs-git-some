@@ -2,7 +2,7 @@ import clearDom from '../helpers/clearDom';
 
 const showMenu = (menuArr) => {
   clearDom();
-  let domString = '';
+  let domString = '<div id="menuContainer">;
   menuArr.forEach((item) => {
     domString += `<div class="card order-card">
       <div class="card-body">
