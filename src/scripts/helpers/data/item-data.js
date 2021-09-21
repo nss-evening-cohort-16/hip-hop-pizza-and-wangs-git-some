@@ -53,14 +53,28 @@ const updateItem = (firebaseKey, payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const createOrderItem = (itemObj) => new Promise((resolve, reject) => {
+  axios.post(`${dbURL}/orderItems.json`, itemObj)
+    .then((response) => {
+      const patchPayload = { firebaseKey: response.data.name };
+      axios.patch(`${dbURL}/items/${response.data.name}.json`, patchPayload)
+        .then(() => {
+          getAllItems().then(resolve);
+        });
+    }).catch(reject);
+});
+
 const addItemFromMenu = async (itemKey, orderKey) => {
   const itemToAdd = await getItem(itemKey);
   const item = {
-    name: itemToAdd.name,
+    title: itemToAdd.name,
     price: itemToAdd.price,
+    image: itemToAdd.image,
+    onSale: itemToAdd.onSale,
+    description: itemToAdd.description,
     orderKey
   };
-  createItem(item);
+  createOrderItem(item);
 };
 
 export {

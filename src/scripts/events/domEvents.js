@@ -87,8 +87,8 @@ const clickListener = (uid, isAdmin) => {
         deleteShow(targetKey).then(showUpcomingShows);
         break;
 
-      case 'addToCart':
-        addToCart(targetKey);
+      case 'menu-item-add-btn':
+        addToCart(targetKey, uid, isAdmin);
         break;
 
       default: break;
