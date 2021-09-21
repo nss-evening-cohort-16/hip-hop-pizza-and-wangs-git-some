@@ -7,11 +7,11 @@ import addNewItem from '../helpers/button-functions/addNewItem';
 import closeOrderConfirm from '../helpers/button-functions/closeOrderButton';
 import submitNewOrder from '../helpers/button-functions/submitNewOrder';
 import updateItemConfirm from '../helpers/button-functions/updateItem';
-import { deleteItem, getItem } from '../helpers/data/item-data';
+import { deleteItem, getItem, getAllItems } from '../helpers/data/item-data';
 import {
   getSingleOrder,
   deleteOrderWithItems,
-  getFilteredOrders
+  getFilteredOrders,
 } from '../helpers/data/order-data';
 import { showRevenue } from '../components/revenue';
 import submitUpdateOrder from '../helpers/button-functions/submitUpdateOrder';
@@ -21,6 +21,7 @@ import submitUpdateShow from '../helpers/button-functions/submitUpdateShow';
 import newShowForm from '../components/newShowForm';
 import { deleteShow, getOneShow } from '../helpers/data/upcoming-show-data';
 import showUpcomingShows from '../components/showUpcomingShows';
+import showMenu from '../components/showMenuItems';
 
 const clickListener = (uid, isAdmin) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -59,6 +60,10 @@ const clickListener = (uid, isAdmin) => {
 
       case 'item-delete-btn':
         deleteItem(targetKey).then(showOrderDetails);
+        break;
+
+      case 'landingViewMenu':
+        getAllItems().then(showMenu);
         break;
 
       case 'landingViewOrders':

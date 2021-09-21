@@ -5,6 +5,8 @@ import { getAllShows } from '../helpers/data/upcoming-show-data';
 import showUpcomingShows from '../components/showUpcomingShows';
 import newShowForm from '../components/newShowForm';
 import { getFilteredOrders, searchOrders } from '../helpers/data/order-data';
+import { getAllItems } from '../helpers/data/item-data';
+import showMenu from '../components/showMenuItems';
 
 const navEvents = (user, isAdmin) => {
   document.querySelector('#createOrder').addEventListener('click', addOrderForm);
@@ -13,6 +15,10 @@ const navEvents = (user, isAdmin) => {
 
   document.querySelector('#viewOrders').addEventListener('click', () => {
     getFilteredOrders(user.uid, isAdmin).then(showOrders);
+  });
+
+  document.querySelector('#viewMenu').addEventListener('click', () => {
+    getAllItems().then(showMenu);
   });
 
   document.querySelector('#viewShows').addEventListener('click', () => {
