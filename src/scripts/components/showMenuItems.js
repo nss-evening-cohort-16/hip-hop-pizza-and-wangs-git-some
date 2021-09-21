@@ -11,7 +11,7 @@ const showMenu = (menuArr) => {
         <ul id="menu item info">
           <li>Price: ${item.price}</li><hr>
           <li>Description: ${item.description}</li><hr>
-          <li>On Sale?: ${item.onSale}</li><hr>
+          <li>${item.onSale ? 'On Sale' : ''}</li>
         </ul>
          <div id="menu-buttons">
           <i class ="btn btn-success fa fa-list-alt" id="menu-item-add-btn--${item.firebaseKey}"></i>

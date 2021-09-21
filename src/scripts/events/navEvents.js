@@ -5,8 +5,9 @@ import { getAllShows } from '../helpers/data/upcoming-show-data';
 import showUpcomingShows from '../components/showUpcomingShows';
 import newShowForm from '../components/newShowForm';
 import { getFilteredOrders, searchOrders } from '../helpers/data/order-data';
-import { getAllItems } from '../helpers/data/item-data';
+// import { getAllItems } from '../helpers/data/item-data';
 import showMenu from '../components/showMenuItems';
+import { getAllMenuItems } from '../helpers/data/menu-item-data';
 
 const navEvents = (user, isAdmin) => {
   document.querySelector('#createOrder').addEventListener('click', addOrderForm);
@@ -18,7 +19,7 @@ const navEvents = (user, isAdmin) => {
   });
 
   document.querySelector('#viewMenu').addEventListener('click', () => {
-    getAllItems().then(showMenu);
+    getAllMenuItems().then(showMenu);
   });
 
   document.querySelector('#viewShows').addEventListener('click', () => {
