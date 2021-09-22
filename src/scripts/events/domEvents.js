@@ -84,7 +84,7 @@ const clickListener = (uid, isAdmin) => {
 
         // ADMIN DELETE MENU ITEM FROM MENU
       case 'menu-item-delete-btn':
-        deleteMenuItem(targetKey).then(showMenu);
+        deleteMenuItem(targetKey).then((menuArr) => showMenu(menuArr, isAdmin));
         break;
 
         // ADMIN EDIT MENU ITEM
@@ -161,7 +161,7 @@ const submitListener = (uid, isAdmin) => {
         // ADMIN EDIT MENU ITEM
       case 'updateMenuItem':
         e.preventDefault();
-        submitUpdateMenuItem(targetKey);
+        submitUpdateMenuItem(targetKey, isAdmin);
         break;
 
       default: break;

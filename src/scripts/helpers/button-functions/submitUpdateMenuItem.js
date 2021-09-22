@@ -1,7 +1,7 @@
 import { updateMenuItem } from '../data/menu-item-data';
 import showMenu from '../../components/showMenuItems';
 
-const submitUpdateMenuItem = (itemKey) => {
+const submitUpdateMenuItem = (itemKey, isAdmin) => {
   const itemObj = {
     title: document.querySelector('#menuTitle').value,
     image: document.querySelector('#menuImage').value,
@@ -9,7 +9,7 @@ const submitUpdateMenuItem = (itemKey) => {
     description: document.querySelector('#menuDesc').value,
     firebaseKey: itemKey
   };
-  updateMenuItem(itemObj).then(showMenu);
+  updateMenuItem(itemObj).then((menuArr) => showMenu(menuArr, isAdmin));
 };
 
 export default submitUpdateMenuItem;
