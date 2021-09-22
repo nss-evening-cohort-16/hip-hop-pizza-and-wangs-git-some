@@ -11,8 +11,8 @@ const showMenu = (menuArr, isAdmin) => {
         <img src=${item.image} alt="${item.title}" style="width: 250px; height: 200px;">
         <ul id="menu item info">
           <li>Price: ${item.price}</li><hr>
-          <li>Description: ${item.description}</li>
-          <li>${item.onSale ? 'On Sale' : ''}</li>
+          <li>Description: ${item.description}</li><hr>
+          ${item.onSale ? '<li><span class="on-sale-tag">On Sale!</span></li><hr>' : ''}
         </ul>
          <div id="menu-buttons">
           <i class ="btn btn-success far fa-plus-square" id="menu-item-add-btn--${item.firebaseKey}">${' Add to order'}</i>
