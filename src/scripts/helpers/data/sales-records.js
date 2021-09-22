@@ -19,8 +19,20 @@ const getGrandTotal = (recordArray) => {
 
 // Get records from a date range
 const getRecordsByDateRange = async (datesArray) => {
-  const filteredRecords = await getAllSalesRecords().then((records) => records.filter((record) => datesArray.includes(record.date)));
-  return filteredRecords;
+  const outputArray = [];
+  const allRecords = await getAllSalesRecords();
+  console.warn(allRecords);
+
+  datesArray.forEach((date) => {
+    if (allRecords.map((r) => r.date).includes(date)) {
+      console.warn(allRecords);
+    } else {
+      outputArray.push([0, date]);
+    }
+  });
+
+  console.warn(outputArray);
+  return outputArray;
 };
 
 export {
