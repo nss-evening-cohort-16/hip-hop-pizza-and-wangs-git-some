@@ -23,7 +23,9 @@ import { deleteShow, getOneShow } from '../helpers/data/upcoming-show-data';
 import showUpcomingShows from '../components/showUpcomingShows';
 import addToCart from '../helpers/button-functions/addToCart';
 import showMenu from '../components/showMenuItems';
-import { getAllMenuItems } from '../helpers/data/menu-item-data';
+import { deleteMenuItem, getAllMenuItems, getSingleMenuItem } from '../helpers/data/menu-item-data';
+import newMenuItemForm from '../components/newMenuItemForm';
+import submitUpdateMenuItem from '../helpers/button-functions/submitUpdateMenuItem';
 
 const clickListener = (uid, isAdmin) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -78,6 +80,16 @@ const clickListener = (uid, isAdmin) => {
 
       case 'landingRevenue':
         showRevenue();
+        break;
+
+        // ADMIN DELETE MENU ITEM FROM MENU
+      case 'menu-item-delete-btn':
+        deleteMenuItem(targetKey).then(showMenu);
+        break;
+
+        // ADMIN EDIT MENU ITEM
+      case 'menu-item-edit-btn':
+        getSingleMenuItem(targetKey).then((item) => newMenuItemForm(item));
         break;
 
       case 'show-edit-btn':
@@ -144,6 +156,12 @@ const submitListener = (uid, isAdmin) => {
       case 'updateShow':
         e.preventDefault();
         submitUpdateShow(targetKey);
+        break;
+
+        // ADMIN EDIT MENU ITEM
+      case 'updateMenuItem':
+        e.preventDefault();
+        submitUpdateMenuItem(targetKey);
         break;
 
       default: break;
