@@ -14,7 +14,7 @@ const showOrders = (orderArr) => {
    <div class="card-body">
      <h4 class="card-title">${order.name}</h4>
      <ul id="order info">
-        <li>${order.isOpen ? 'Order Status: Open' : 'Order Status: Closed'}</li><hr>
+        <li>${order.isOpen === 'open' ? 'Order Status: Open' : 'Order Status: Closed'}</li><hr>
         <li>Phone: ${order.phone || 'no phone provided'}</li><hr>
         <li>Email: ${order.email || 'no email provided'}</li><hr>
         <li>Order Type: ${order.orderType}</li><hr>
