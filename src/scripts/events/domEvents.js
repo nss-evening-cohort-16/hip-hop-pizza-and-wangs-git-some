@@ -84,7 +84,7 @@ const clickListener = (uid, isAdmin) => {
 
         // ADMIN DELETE MENU ITEM FROM MENU
       case 'menu-item-delete-btn':
-        deleteMenuItem(targetKey).then(showMenu);
+        deleteMenuItem(targetKey).then((menuArr) => showMenu(menuArr, isAdmin));
         break;
 
         // ADMIN EDIT MENU ITEM
