@@ -1,92 +1,111 @@
 {
-  "-MjX4hTnAwX8ZsDBtkg0": {
-    "date" : "2020-07-01T14:43:13.389Z",
-    "email" : "mferguson@email.com",
-    "firebaseKey" : "-MjX4hTnAwX8ZsDBtkg0",
-    "isOpen" : true,
-    "name" : "Murphy Ferguson",
-    "orderType" : "phone",
-    "phone" : "111-111-1111"
-  },
-  "-Mj1r6KunmGK-NazXSzb": {
+  "-Mj1r6KunmGK-NazXSzb" : {
     "date" : "2018-01-09T21:30:44.988Z",
     "email" : "hdeacon@email.com",
     "firebaseKey" : "-Mj1r6KunmGK-NazXSzb",
-    "isOpen" : false,
+    "isOpen" : "closed",
     "name" : "Hanan Deacon",
     "orderType" : "in-person",
     "phone" : "222-222-2222"
   },
-  "-Mj6wVFPqYAgrPZv2TqI": {
-    "date" : "2021-07-22T13:05:33.111Z",
-    "email" : "selliott@email.com",
-    "firebaseKey" : "-Mj6wVFPqYAgrPZv2TqI",
-    "isOpen" : true,
-    "name" : "Shola Elliott",
-    "orderType" : "phone",
-    "phone" : "333-333-3333"
-  },
-  "-Mj6wbUCfnq8_9eo3SmE": {
-    "date" : "2021-07-01T14:43:13.389Z",
-    "email" : "akeller@email.com",
-    "firebaseKey" : "-Mj6wbUCfnq8_9eo3SmE",
-    "isOpen" : false,
-    "name" : "Ace Keller",
-    "orderType" : "in-person",
-    "phone" : "444-444-4444"
-  },
-  "-Mj6uYvPYwOaK_id_-i7": {
+  "-Mj6uYvPYwOaK_id_-i7" : {
     "date" : "2021-05-01T14:43:13.389Z",
     "email" : "wferreira@email.com",
     "firebaseKey" : "-Mj6uYvPYwOaK_id_-i7",
-    "isOpen" : true,
+    "isOpen" : "open",
     "name" : "Wade Ferreira",
     "orderType" : "phone",
     "phone" : "555-555-5555"
   },
-  "-Mj6wzuaftOOz46I9Wap": {
+  "-Mj6wVFPqYAgrPZv2TqI" : {
+    "date" : "2021-07-22T13:05:33.111Z",
+    "email" : "selliott@email.com",
+    "firebaseKey" : "-Mj6wVFPqYAgrPZv2TqI",
+    "isOpen" : "open",
+    "name" : "Shola Elliott",
+    "orderType" : "phone",
+    "phone" : "333-333-3333"
+  },
+  "-Mj6wbUCfnq8_9eo3SmE" : {
+    "date" : "2021-07-01T14:43:13.389Z",
+    "email" : "akeller@email.com",
+    "firebaseKey" : "-Mj6wbUCfnq8_9eo3SmE",
+    "isOpen" : "closed",
+    "name" : "Ace Keller",
+    "orderType" : "in-person",
+    "phone" : "444-444-4444"
+  },
+  "-Mj6wzuaftOOz46I9Wap" : {
     "date" : "2021-07-22T13:05:33.111Z",
     "email" : "zwilde@email.com",
     "firebaseKey" : "-Mj6wzuaftOOz46I9Wap",
-    "isOpen" : false,
+    "isOpen" : "closed",
     "name" : "Zoey Wilde",
     "orderType" : "in-person",
     "phone" : "666-666-6666"
   },
-  "-Mj6xWlvDdSVKhRGsrEu": {
+  "-Mj6xWlvDdSVKhRGsrEu" : {
     "date" : "2018-01-09T21:30:44.988Z",
     "email" : "csparks@email.com",
     "firebaseKey" : "-Mj6xWlvDdSVKhRGsrEu",
-    "isOpen" : true,
+    "isOpen" : "open",
     "name" : "Carolyn Sparks",
     "orderType" : "phone",
     "phone" : "777-777-7777"
   },
-  "-Mj6y1TqlvepN8fb7UX7": {
+  "-Mj6y1TqlvepN8fb7UX7" : {
     "date" : "2021-06-07T10:34:55.333Z",
     "email" : "tdickinson@email.com",
     "firebaseKey" : "-Mj6y1TqlvepN8fb7UX7",
-    "isOpen" : false,
+    "isOpen" : "closed",
     "name" : "Teagan Dickinson",
     "orderType" : "in-person",
     "phone" : "888-888-8888"
   },
-  "-Mj6z8cmxz10-2KSpWrf": {
+  "-Mj6z8cmxz10-2KSpWrf" : {
     "date" : "2018-03-21T06:14:23.467Z",
     "email" : "hbailey@email.com",
     "firebaseKey" : "-Mj6z8cmxz10-2KSpWrf",
-    "isOpen" : true,
+    "isOpen" : "open",
     "name" : "Hayden Bailey",
     "orderType" : "phone",
     "phone" : "999-999-9999"
   },
-  "-Mj6zFI4pj0MOvS3pfj5": {
+  "-Mj6zFI4pj0MOvS3pfj5" : {
     "date" : "2020-07-01T14:43:13.389Z",
     "email" : "frivas@email.com",
     "firebaseKey" : "-Mj6zFI4pj0MOvS3pfj5",
-    "isOpen" : false,
+    "isOpen" : "closed",
     "name" : "Frankie Rivas",
     "orderType" : "in-person",
     "phone" : "101-101-1010"
+  },
+  "-MjX4hTnAwX8ZsDBtkg0" : {
+    "date" : "2020-07-01T14:43:13.389Z",
+    "email" : "mferguson@email.com",
+    "firebaseKey" : "-MjX4hTnAwX8ZsDBtkg0",
+    "isOpen" : "open",
+    "name" : "Murphy Ferguson",
+    "orderType" : "phone",
+    "phone" : "111-111-1111"
+  },
+  "-MjtnRwbmfIdCvYJnkbF" : {
+    "date" : "Sat, 18 Sep 2021 16:46:58 GMT",
+    "email" : "wellspring.craig@gmail.com",
+    "firebaseKey" : "-MjtnRwbmfIdCvYJnkbF",
+    "isOpen" : "closed",
+    "name" : "Craig Wellspring",
+    "orderType" : "phone",
+    "phone" : "6363599246"
+  },
+  "-Mk59ZuzAIcU7GNqlC06" : {
+    "date" : "Tue, 21 Sep 2021 02:23:28 GMT",
+    "email" : "dsds@gmail.com",
+    "firebaseKey" : "-Mk59ZuzAIcU7GNqlC06",
+    "isOpen" : "open",
+    "name" : "Daniel",
+    "orderType" : "phone",
+    "phone" : "111-112-1234",
+    "uid" : "pOsNwA7qVGM6LUxzm4SUumEifnh1"
   }
 }

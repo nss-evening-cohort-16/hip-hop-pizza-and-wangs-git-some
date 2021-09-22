@@ -211,4 +211,35 @@ hr {
   color: #9b9d9e;
 }
 
+.show-card-inner ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#menuFilterContainer {
+  display: flex;
+  margin: 0 -2em 0 -2em;
+}
+
+#addNewMenuItem {
+  flex-basis: 30%;
+  margin-left: .5em;
+}
+
+.menu-on-sale {
+  display: flex;
+  justify-content: center;
+}
+
+#menuOnSale {
+  margin-right: .25em;
+}
+
+.on-sale-tag {
+  background-color: rgb(5, 179, 5);
+  padding: .2em;
+  border: 1px transparent;
+  border-radius: 3px;
+}
+
 @import 'revenue.scss';

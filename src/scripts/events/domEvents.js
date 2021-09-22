@@ -11,7 +11,7 @@ import { deleteItem, getItem } from '../helpers/data/item-data';
 import {
   getSingleOrder,
   deleteOrderWithItems,
-  getFilteredOrders
+  getFilteredOrders,
 } from '../helpers/data/order-data';
 import { showRevenue } from '../components/revenue';
 import submitUpdateOrder from '../helpers/button-functions/submitUpdateOrder';
@@ -21,17 +21,21 @@ import submitUpdateShow from '../helpers/button-functions/submitUpdateShow';
 import newShowForm from '../components/newShowForm';
 import { deleteShow, getOneShow } from '../helpers/data/upcoming-show-data';
 import showUpcomingShows from '../components/showUpcomingShows';
+import addToCart from '../helpers/button-functions/addToCart';
+import showMenu from '../components/showMenuItems';
+import { deleteMenuItem, getAllMenuItems, getSingleMenuItem } from '../helpers/data/menu-item-data';
+import newMenuItemForm from '../components/newMenuItemForm';
+import submitUpdateMenuItem from '../helpers/button-functions/submitUpdateMenuItem';
 
-const clickListener = () => {
+const clickListener = (uid, isAdmin) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
     const [targetID, targetKey] = e.target.id.split('--');
-    const selectedFilter = document.querySelector('#orderStatusFilter').value;
     console.warn(`ID: ${targetID}, Key: ${targetKey}`);
 
     switch (targetID) {
       // View Orders Page
       case 'order-detail-btn':
-        showOrderDetails(targetKey);
+        showOrderDetails(targetKey, isAdmin);
         break;
 
       case 'order-edit-btn':
@@ -41,13 +45,13 @@ const clickListener = () => {
       case 'order-delete-btn':
         // eslint-disable-next-line no-alert
         if (window.confirm('Are you sure you want to delete this order?')) {
-          deleteOrderWithItems(targetKey);
+          deleteOrderWithItems(targetKey, uid, isAdmin);
         }
         break;
 
       // Order Details Page
       case 'add-item':
-        newItemForm(targetKey);
+        getAllMenuItems().then((menuArr) => showMenu(menuArr, isAdmin));
         break;
 
       case 'payment':
@@ -55,15 +59,19 @@ const clickListener = () => {
         break;
 
       case 'item-edit-btn':
-        getItem(targetKey).then((item) => newItemForm(item.orderKey, item));
+        getItem(targetKey).then((item) => newItemForm(item));
         break;
 
       case 'item-delete-btn':
         deleteItem(targetKey).then(showOrderDetails);
         break;
 
+      case 'landingViewMenu':
+        getAllMenuItems().then((menuArr) => showMenu(menuArr, isAdmin));
+        break;
+
       case 'landingViewOrders':
-        getFilteredOrders(selectedFilter).then(showOrders);
+        getFilteredOrders(uid, isAdmin).then(showOrders);
         break;
 
       case 'landingCreateOrder':
@@ -74,6 +82,16 @@ const clickListener = () => {
         showRevenue();
         break;
 
+        // ADMIN DELETE MENU ITEM FROM MENU
+      case 'menu-item-delete-btn':
+        deleteMenuItem(targetKey).then((menuArr) => showMenu(menuArr, isAdmin));
+        break;
+
+        // ADMIN EDIT MENU ITEM
+      case 'menu-item-edit-btn':
+        getSingleMenuItem(targetKey).then((item) => newMenuItemForm(item));
+        break;
+
       case 'show-edit-btn':
         getOneShow(targetKey).then((show) => newShowForm(show));
         break;
@@ -82,12 +100,20 @@ const clickListener = () => {
         deleteShow(targetKey).then(showUpcomingShows);
         break;
 
+      case 'menu-item-add-btn':
+        addToCart(targetKey, uid, isAdmin);
+        break;
+
+      case 'addNewMenuItem':
+        newMenuItemForm();
+        break;
+
       default: break;
     }
   });
 };
 
-const submitListener = () => {
+const submitListener = (uid, isAdmin) => {
   document.querySelector('#mainContainer').addEventListener('submit', (e) => {
     const [targetID, targetKey] = e.target.id.split('--');
 
@@ -106,18 +132,18 @@ const submitListener = () => {
       // Close Order Page
       case 'closeOrderForm':
         e.preventDefault();
-        closeOrderConfirm(targetKey);
+        closeOrderConfirm(targetKey, uid, isAdmin);
         break;
 
         // CREATE ORDER
       case 'submitOrder':
         e.preventDefault();
-        submitNewOrder();
+        submitNewOrder(uid, isAdmin);
         break;
 
       case 'updateOrder':
         e.preventDefault();
-        submitUpdateOrder(targetKey);
+        submitUpdateOrder(targetKey, uid, isAdmin);
         break;
 
       // Revenue page
@@ -135,6 +161,17 @@ const submitListener = () => {
       case 'updateShow':
         e.preventDefault();
         submitUpdateShow(targetKey);
+        break;
+
+        // ADMIN EDIT MENU ITEM
+      case 'updateMenuItem':
+        e.preventDefault();
+        submitUpdateMenuItem(targetKey, isAdmin);
+        break;
+
+      case 'submitMenuItem':
+        e.preventDefault();
+        submitUpdateMenuItem(null, isAdmin);
         break;
 
       default: break;
