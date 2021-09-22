@@ -16,7 +16,6 @@ import {
 import { showRevenue } from '../components/revenue';
 import submitUpdateOrder from '../helpers/button-functions/submitUpdateOrder';
 import filterRevenue from '../helpers/button-functions/filterRevenue';
-import submitNewShow from '../helpers/button-functions/submitNewShow';
 import submitUpdateShow from '../helpers/button-functions/submitUpdateShow';
 import newShowForm from '../components/newShowForm';
 import { deleteShow, getOneShow } from '../helpers/data/upcoming-show-data';
@@ -97,7 +96,7 @@ const clickListener = (uid, isAdmin) => {
         break;
 
       case 'show-delete-btn':
-        deleteShow(targetKey).then(showUpcomingShows);
+        deleteShow(targetKey).then((showArr) => showUpcomingShows(showArr, isAdmin));
         break;
 
       case 'menu-item-add-btn':
@@ -106,6 +105,10 @@ const clickListener = (uid, isAdmin) => {
 
       case 'addNewMenuItem':
         newMenuItemForm();
+        break;
+
+      case 'addNewShow':
+        newShowForm();
         break;
 
       default: break;
@@ -152,15 +155,15 @@ const submitListener = (uid, isAdmin) => {
         filterRevenue();
         break;
 
-      // UPCOMING SHOWS STRETCH PGS
+        // UPCOMING SHOWS STRETCH PGS
       case 'submitShow':
         e.preventDefault();
-        submitNewShow();
+        submitUpdateShow(targetKey, isAdmin);
         break;
 
       case 'updateShow':
         e.preventDefault();
-        submitUpdateShow(targetKey);
+        submitUpdateShow(targetKey, isAdmin);
         break;
 
         // ADMIN EDIT MENU ITEM
