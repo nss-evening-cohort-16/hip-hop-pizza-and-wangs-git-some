@@ -33,7 +33,7 @@ const clickListener = (uid, isAdmin) => {
     switch (targetID) {
       // View Orders Page
       case 'order-detail-btn':
-        showOrderDetails(targetKey);
+        showOrderDetails(targetKey, isAdmin);
         break;
 
       case 'order-edit-btn':
@@ -49,7 +49,7 @@ const clickListener = (uid, isAdmin) => {
 
       // Order Details Page
       case 'add-item':
-        newItemForm(targetKey);
+        getAllMenuItems().then((menuArr) => showMenu(menuArr, isAdmin));
         break;
 
       case 'payment':
@@ -57,7 +57,7 @@ const clickListener = (uid, isAdmin) => {
         break;
 
       case 'item-edit-btn':
-        getItem(targetKey).then((item) => newItemForm(item.orderKey, item));
+        getItem(targetKey).then((item) => newItemForm(item));
         break;
 
       case 'item-delete-btn':
@@ -65,7 +65,7 @@ const clickListener = (uid, isAdmin) => {
         break;
 
       case 'landingViewMenu':
-        getAllMenuItems().then(showMenu);
+        getAllMenuItems().then((menuArr) => showMenu(menuArr, isAdmin));
         break;
 
       case 'landingViewOrders':

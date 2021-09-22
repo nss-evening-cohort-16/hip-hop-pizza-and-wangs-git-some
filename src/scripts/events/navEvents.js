@@ -27,7 +27,7 @@ const navEvents = (user, isAdmin) => {
   });
 
   document.querySelector('#viewMenu').addEventListener('click', () => {
-    getAllMenuItems().then(showMenu);
+    getAllMenuItems().then((menuArr) => showMenu(menuArr, isAdmin));
   });
 
   document.querySelector('#viewShows').addEventListener('click', () => {

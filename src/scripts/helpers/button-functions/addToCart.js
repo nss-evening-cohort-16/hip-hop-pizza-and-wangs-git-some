@@ -3,7 +3,7 @@ import { addItemFromMenu } from '../data/item-data';
 
 const addToCart = async (itemKey, uid, isAdmin) => {
   if (isAdmin) {
-    const orderId = document.querySelector('#openOrderDropdown').value;
+    const orderId = document.querySelector('#menuOrderFilter').value;
     addItemFromMenu(itemKey, orderId);
   } else {
     const orderId = ((await getOrders(uid, isAdmin))[0]).firebaseKey;
