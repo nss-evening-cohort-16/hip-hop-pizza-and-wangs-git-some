@@ -5,7 +5,7 @@ const showUpcomingShows = (showArr) => {
   let domString = '';
   showArr.forEach((show) => {
     domString += `<div class="card show-card">
-    <div class="card-body">
+    <div class="card-body show-card-inner">
       <h4 class="card-title">${show.name}</h4>
       <img src=${show.img} alt=${show.name} style="width: 250px; height: 200px;">
       <ul id="show info">

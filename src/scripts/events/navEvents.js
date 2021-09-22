@@ -4,13 +4,21 @@ import showOrders from '../components/orders';
 import { getAllShows } from '../helpers/data/upcoming-show-data';
 import showUpcomingShows from '../components/showUpcomingShows';
 import newShowForm from '../components/newShowForm';
-import { getFilteredOrders, searchOrders } from '../helpers/data/order-data';
+import { getFilteredOrders, getOrders, searchOrders } from '../helpers/data/order-data';
 // import { getAllItems } from '../helpers/data/item-data';
 import showMenu from '../components/showMenuItems';
 import { getAllMenuItems } from '../helpers/data/menu-item-data';
 
 const navEvents = (user, isAdmin) => {
-  document.querySelector('#createOrder').addEventListener('click', addOrderForm);
+  document.querySelector('#createOrder').addEventListener('click', async () => {
+    if (isAdmin !== true) {
+      const userOrders = await getOrders(user.uid, isAdmin);
+      const openUserOrders = userOrders.filter((order) => order.isOpen === 'open');
+      // eslint-disable-next-line no-alert
+      if (openUserOrders.length > 0) window.alert('Please finish your current order.');
+      else addOrderForm();
+    } else addOrderForm();
+  });
 
   document.querySelector('#home').addEventListener('click', () => landingPage(user));
 
@@ -19,7 +27,7 @@ const navEvents = (user, isAdmin) => {
   });
 
   document.querySelector('#viewMenu').addEventListener('click', () => {
-    getAllMenuItems().then(showMenu);
+    getAllMenuItems().then((menuArr) => showMenu(menuArr, isAdmin));
   });
 
   document.querySelector('#viewShows').addEventListener('click', () => {

@@ -1,8 +1,9 @@
 import clearDom from '../helpers/clearDom';
+import menuOrderFilter from './menuOrderFilter';
 
-const showMenu = (menuArr) => {
+const showMenu = (menuArr, isAdmin) => {
   clearDom();
-  let domString = '';
+  let domString = '<div id="menuContainer"><div id="menuFilterContainer"></div>';
   menuArr.forEach((item) => {
     domString += `<div class="card order-card">
       <div class="card-body">
@@ -11,18 +12,20 @@ const showMenu = (menuArr) => {
         <ul id="menu item info">
           <li>Price: ${item.price}</li><hr>
           <li>Description: ${item.description}</li><hr>
-          <li>${item.onSale ? 'On Sale' : ''}</li>
+          <li>On Sale?: ${item.onSale}</li><hr>
         </ul>
          <div id="menu-buttons">
-          <i class ="btn btn-success fa fa-list-alt" id="menu-item-add-btn--${item.firebaseKey}"></i>
-          <i class="btn btn-success far fa-edit" id="menu-item-edit-btn--${item.firebaseKey}"></i>
-          <i class="btn btn-danger fa fa-trash-alt" id="menu-item-delete-btn--${item.firebaseKey}"></i>
+          <i class ="btn btn-success far fa-plus-square" id="menu-item-add-btn--${item.firebaseKey}">${' Add to order'}</i>
+          ${isAdmin === true ? `<i class="btn btn-success far fa-edit" id="menu-item-edit-btn--${item.firebaseKey}"></i>
+          <i class="btn btn-danger fa fa-trash-alt" id="menu-item-delete-btn--${item.firebaseKey}"></i>` : ''}
         </div>
     </div>
   </div>
     `;
   });
+  domString += '</div>';
   document.querySelector('#cardContainer').innerHTML = domString;
+  menuOrderFilter(isAdmin);
 };
 
 export default showMenu;

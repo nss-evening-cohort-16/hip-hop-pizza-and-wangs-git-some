@@ -211,4 +211,9 @@ hr {
   color: #9b9d9e;
 }
 
+.show-card-inner ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
 @import 'revenue.scss';

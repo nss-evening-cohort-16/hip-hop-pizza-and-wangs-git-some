@@ -21,6 +21,7 @@ import submitUpdateShow from '../helpers/button-functions/submitUpdateShow';
 import newShowForm from '../components/newShowForm';
 import { deleteShow, getOneShow } from '../helpers/data/upcoming-show-data';
 import showUpcomingShows from '../components/showUpcomingShows';
+import addToCart from '../helpers/button-functions/addToCart';
 import showMenu from '../components/showMenuItems';
 import { deleteMenuItem, getAllMenuItems, getSingleMenuItem } from '../helpers/data/menu-item-data';
 import newMenuItemForm from '../components/newMenuItemForm';
@@ -34,7 +35,7 @@ const clickListener = (uid, isAdmin) => {
     switch (targetID) {
       // View Orders Page
       case 'order-detail-btn':
-        showOrderDetails(targetKey);
+        showOrderDetails(targetKey, isAdmin);
         break;
 
       case 'order-edit-btn':
@@ -50,7 +51,7 @@ const clickListener = (uid, isAdmin) => {
 
       // Order Details Page
       case 'add-item':
-        newItemForm(targetKey);
+        getAllMenuItems().then((menuArr) => showMenu(menuArr, isAdmin));
         break;
 
       case 'payment':
@@ -58,7 +59,7 @@ const clickListener = (uid, isAdmin) => {
         break;
 
       case 'item-edit-btn':
-        getItem(targetKey).then((item) => newItemForm(item.orderKey, item));
+        getItem(targetKey).then((item) => newItemForm(item));
         break;
 
       case 'item-delete-btn':
@@ -66,7 +67,7 @@ const clickListener = (uid, isAdmin) => {
         break;
 
       case 'landingViewMenu':
-        getAllMenuItems().then(showMenu);
+        getAllMenuItems().then((menuArr) => showMenu(menuArr, isAdmin));
         break;
 
       case 'landingViewOrders':
@@ -97,6 +98,10 @@ const clickListener = (uid, isAdmin) => {
 
       case 'show-delete-btn':
         deleteShow(targetKey).then(showUpcomingShows);
+        break;
+
+      case 'menu-item-add-btn':
+        addToCart(targetKey, uid, isAdmin);
         break;
 
       default: break;
