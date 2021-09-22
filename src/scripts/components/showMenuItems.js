@@ -12,7 +12,7 @@ const showMenu = (menuArr, isAdmin) => {
         <ul id="menu item info">
           <li>Price: ${item.price}</li><hr>
           <li>Description: ${item.description}</li><hr>
-          <li>On Sale?: ${item.onSale}</li><hr>
+          ${item.onSale ? '<li><span class="on-sale-tag">On Sale!</span></li><hr>' : ''}
         </ul>
          <div id="menu-buttons">
           <i class ="btn btn-success far fa-plus-square" id="menu-item-add-btn--${item.firebaseKey}">${' Add to order'}</i>

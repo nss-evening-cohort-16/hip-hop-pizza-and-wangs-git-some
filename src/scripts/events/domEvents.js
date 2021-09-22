@@ -104,6 +104,10 @@ const clickListener = (uid, isAdmin) => {
         addToCart(targetKey, uid, isAdmin);
         break;
 
+      case 'addNewMenuItem':
+        newMenuItemForm();
+        break;
+
       default: break;
     }
   });
@@ -161,7 +165,12 @@ const submitListener = (uid, isAdmin) => {
         // ADMIN EDIT MENU ITEM
       case 'updateMenuItem':
         e.preventDefault();
-        submitUpdateMenuItem(targetKey);
+        submitUpdateMenuItem(targetKey, isAdmin);
+        break;
+
+      case 'submitMenuItem':
+        e.preventDefault();
+        submitUpdateMenuItem(null, isAdmin);
         break;
 
       default: break;
