@@ -10,7 +10,7 @@ const showMenu = (menuArr, isAdmin) => {
         <h4 class="card-title">${item.title}</h4>
         <img src=${item.image} alt="${item.title}" style="width: 250px; height: 200px;">
         <ul id="menu item info">
-          <li>Price: ${item.price}</li><hr>
+          <li>Price: $${item.price}</li><hr>
           <li>Description: ${item.description}</li><hr>
           ${item.onSale ? '<li><span class="on-sale-tag">On Sale!</span></li><hr>' : ''}
         </ul>
