@@ -1,4 +1,4 @@
-import { showFilteredRevenue } from '../../components/revenue';
+import { generateSalesGraph } from '../../components/revenue';
 import { getRecordsByDateRange } from '../data/sales-records';
 
 const getDatesArray = (start, end) => {
@@ -14,7 +14,7 @@ const filterRevenue = () => {
   const date2 = document.querySelector('#dateSelect2').value;
   const dateRange = getDatesArray(date1, date2);
 
-  getRecordsByDateRange(dateRange).then(showFilteredRevenue);
+  getRecordsByDateRange(dateRange).then(generateSalesGraph);
 };
 
 export default filterRevenue;

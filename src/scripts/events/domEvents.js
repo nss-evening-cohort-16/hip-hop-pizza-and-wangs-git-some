@@ -13,7 +13,6 @@ import {
   deleteOrderWithItems,
   getFilteredOrders
 } from '../helpers/data/order-data';
-import { showRevenue } from '../components/revenue';
 import submitUpdateOrder from '../helpers/button-functions/submitUpdateOrder';
 import filterRevenue from '../helpers/button-functions/filterRevenue';
 import submitNewShow from '../helpers/button-functions/submitNewShow';
@@ -21,6 +20,7 @@ import submitUpdateShow from '../helpers/button-functions/submitUpdateShow';
 import newShowForm from '../components/newShowForm';
 import { deleteShow, getOneShow } from '../helpers/data/upcoming-show-data';
 import showUpcomingShows from '../components/showUpcomingShows';
+import { viewRevenueGraph } from '../components/revenue';
 
 const clickListener = () => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -71,7 +71,7 @@ const clickListener = () => {
         break;
 
       case 'landingRevenue':
-        showRevenue();
+        viewRevenueGraph();
         break;
 
       case 'show-edit-btn':
@@ -109,7 +109,7 @@ const submitListener = () => {
         closeOrderConfirm(targetKey);
         break;
 
-        // CREATE ORDER
+      // CREATE ORDER
       case 'submitOrder':
         e.preventDefault();
         submitNewOrder();
@@ -124,7 +124,9 @@ const submitListener = () => {
       case 'revenueDateSelect':
         e.preventDefault();
         filterRevenue();
-        
+        break;
+
+      // Shows page
       case 'submitShow':
         e.preventDefault();
         submitNewShow();
