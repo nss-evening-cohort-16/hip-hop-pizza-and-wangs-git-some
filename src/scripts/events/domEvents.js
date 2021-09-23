@@ -13,7 +13,6 @@ import {
   deleteOrderWithItems,
   getFilteredOrders,
 } from '../helpers/data/order-data';
-import { showRevenue } from '../components/revenue';
 import submitUpdateOrder from '../helpers/button-functions/submitUpdateOrder';
 import filterRevenue from '../helpers/button-functions/filterRevenue';
 import submitNewShow from '../helpers/button-functions/submitNewShow';
@@ -21,11 +20,15 @@ import submitUpdateShow from '../helpers/button-functions/submitUpdateShow';
 import newShowForm from '../components/newShowForm';
 import { deleteShow, getOneShow } from '../helpers/data/upcoming-show-data';
 import showUpcomingShows from '../components/showUpcomingShows';
+<<<<<<< HEAD
 import addToCart from '../helpers/button-functions/addToCart';
 import showMenu from '../components/showMenuItems';
 import { deleteMenuItem, getAllMenuItems, getSingleMenuItem } from '../helpers/data/menu-item-data';
 import newMenuItemForm from '../components/newMenuItemForm';
 import submitUpdateMenuItem from '../helpers/button-functions/submitUpdateMenuItem';
+=======
+import { viewRevenueGraph } from '../components/revenue';
+>>>>>>> f3ed79a35937967a90d0e6175ddd934e39c81b48
 
 const clickListener = (uid, isAdmin) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -79,7 +82,7 @@ const clickListener = (uid, isAdmin) => {
         break;
 
       case 'landingRevenue':
-        showRevenue();
+        viewRevenueGraph();
         break;
 
         // ADMIN DELETE MENU ITEM FROM MENU
@@ -135,7 +138,7 @@ const submitListener = (uid, isAdmin) => {
         closeOrderConfirm(targetKey, uid, isAdmin);
         break;
 
-        // CREATE ORDER
+      // CREATE ORDER
       case 'submitOrder':
         e.preventDefault();
         submitNewOrder(uid, isAdmin);
@@ -152,6 +155,10 @@ const submitListener = (uid, isAdmin) => {
         filterRevenue();
         break;
 
+<<<<<<< HEAD
+=======
+      // Shows page
+>>>>>>> f3ed79a35937967a90d0e6175ddd934e39c81b48
       case 'submitShow':
         e.preventDefault();
         submitNewShow();
