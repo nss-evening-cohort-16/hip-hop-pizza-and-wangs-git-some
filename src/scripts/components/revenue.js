@@ -54,19 +54,28 @@ const getDatesArray = (start, end) => {
 
 // Get records from a date range
 const getRecordsByDateRange = async (datesArray) => {
-  console.warn(datesArray);
+  // console.warn(datesArray);
   const outputArray = [];
   const allRecords = await getAllSalesRecords();
-  console.warn(allRecords);
+  // console.warn(allRecords);
+  const dateRecords = [];
 
   datesArray.forEach((date) => {
-    if (allRecords.map((r) => r.date).includes(date)) {
-      console.warn(allRecords.map((r) => r.date));
-    } else {
-      outputArray.push([0, date]);
-    }
+    const recordsForDay = (allRecords.filter((r) => r.date === date));
+    if (recordsForDay.length > 0) dateRecords.push(recordsForDay);
+    if (recordsForDay.length === 0) dateRecords.push([{ date, orderTotal: 0, tip: 0 }]);
+    // outputArray.push([0, date]);
   });
-
+  console.warn(dateRecords);
+  dateRecords.forEach((day) => {
+    let dayTotal = 0;
+    day.forEach((order) => { dayTotal += (Number(order.orderTotal) + Number(order.tip)); });
+    const dailyRecord = {
+      date: day[0].date,
+      dayTotal,
+    };
+    outputArray.push(dailyRecord);
+  });
   console.warn(outputArray);
   return outputArray;
 };

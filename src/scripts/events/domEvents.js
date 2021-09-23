@@ -20,15 +20,12 @@ import submitUpdateShow from '../helpers/button-functions/submitUpdateShow';
 import newShowForm from '../components/newShowForm';
 import { deleteShow, getOneShow } from '../helpers/data/upcoming-show-data';
 import showUpcomingShows from '../components/showUpcomingShows';
-<<<<<<< HEAD
 import addToCart from '../helpers/button-functions/addToCart';
 import showMenu from '../components/showMenuItems';
 import { deleteMenuItem, getAllMenuItems, getSingleMenuItem } from '../helpers/data/menu-item-data';
 import newMenuItemForm from '../components/newMenuItemForm';
 import submitUpdateMenuItem from '../helpers/button-functions/submitUpdateMenuItem';
-=======
 import { viewRevenueGraph } from '../components/revenue';
->>>>>>> f3ed79a35937967a90d0e6175ddd934e39c81b48
 
 const clickListener = (uid, isAdmin) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -155,10 +152,6 @@ const submitListener = (uid, isAdmin) => {
         filterRevenue();
         break;
 
-<<<<<<< HEAD
-=======
-      // Shows page
->>>>>>> f3ed79a35937967a90d0e6175ddd934e39c81b48
       case 'submitShow':
         e.preventDefault();
         submitNewShow();
