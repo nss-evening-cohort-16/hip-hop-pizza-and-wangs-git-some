@@ -13,7 +13,6 @@ import {
   deleteOrderWithItems,
   getFilteredOrders,
 } from '../helpers/data/order-data';
-import { showRevenue } from '../components/revenue';
 import submitUpdateOrder from '../helpers/button-functions/submitUpdateOrder';
 import filterRevenue from '../helpers/button-functions/filterRevenue';
 import submitNewShow from '../helpers/button-functions/submitNewShow';
@@ -26,6 +25,7 @@ import showMenu from '../components/showMenuItems';
 import { deleteMenuItem, getAllMenuItems, getSingleMenuItem } from '../helpers/data/menu-item-data';
 import newMenuItemForm from '../components/newMenuItemForm';
 import submitUpdateMenuItem from '../helpers/button-functions/submitUpdateMenuItem';
+import { viewRevenueGraph } from '../components/revenue';
 
 const clickListener = (uid, isAdmin) => {
   document.querySelector('#mainContainer').addEventListener('click', (e) => {
@@ -79,7 +79,7 @@ const clickListener = (uid, isAdmin) => {
         break;
 
       case 'landingRevenue':
-        showRevenue();
+        viewRevenueGraph();
         break;
 
         // ADMIN DELETE MENU ITEM FROM MENU
@@ -135,7 +135,7 @@ const submitListener = (uid, isAdmin) => {
         closeOrderConfirm(targetKey, uid, isAdmin);
         break;
 
-        // CREATE ORDER
+      // CREATE ORDER
       case 'submitOrder':
         e.preventDefault();
         submitNewOrder(uid, isAdmin);

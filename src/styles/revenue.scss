@@ -1,15 +1,30 @@
-#revenueDateSelect {
+#revenueDateSelect,
+#revenueGraphContainer {
   background-color: transparent;
   background-image: linear-gradient(#e4e4e4, rgb(182, 182, 182));
+}
+
+#revenueDateSelect,
+#filteredRevenueDisplay,
+#revenueGraphContainer {
   padding: 10px;
   border: 1px solid black;
   border-radius: 4px;
   margin: 10px;
 }
 
-#filteredRevenueDisplay {
-  padding: 10px;
-  border: 1px solid black;
+#dateSelect1,
+#dateSelect2 {
+  padding: 3px;
   border-radius: 4px;
-  margin: 10px;
+}
+
+.graphBar {
+  fill: black;
+}
+
+.graphBar:hover {
+  fill: yellowgreen;
+  stroke: black;
+  stroke-width: 2;
 }
