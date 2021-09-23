@@ -29,7 +29,7 @@ const closeOrderConfirm = (orderKey, uid, isAdmin) => {
         orderType: order.orderType,
         uid
       };
-      createRecord(newRecord).then(() => closeOrder(orderKey, uid, isAdmin));
+      createRecord(newRecord, uid, isAdmin).then(() => closeOrder(orderKey, uid, isAdmin));
     });
   });
 };
