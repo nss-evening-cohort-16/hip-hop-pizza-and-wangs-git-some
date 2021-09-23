@@ -1,16 +1,16 @@
 import clearDom from '../helpers/clearDom';
 import { getAllSalesRecords } from '../helpers/data/sales-data';
-import { getGrandTotal } from '../helpers/data/sales-records';
 
-// Settings
-const graphMinHeight = 120;
+// Graph Settings
+const graphMinHeight = 100;
 const graphOffset = 1;
 const barHeightMult = 2;
 const barPadding = 5;
 
 // Draw graph
-const generateSalesGraph = (records) => {
-  const grandTotal = getGrandTotal(records);
+const generateSalesGraph = (dataSet) => {
+  let total = 0;
+  dataSet.map((data) => data[0]).forEach((sale) => { total += sale; });
 
   const graphContainer = document.querySelector('#revenueGraphContainer');
   graphContainer.innerHTML = `
@@ -18,13 +18,8 @@ const generateSalesGraph = (records) => {
     <br><br>
     <svg id="revenueGraph"></svg>
     <br><br>
-    <h3 id="totalContainer">TOTAL SALES: $${grandTotal}</h3>
+    <h3 id="totalContainer">TOTAL SALES: $${total}</h3>
   `;
-
-  const dataSet = [];
-  records.forEach((record) => {
-    dataSet.push([record.orderTotal + record.tip, record.date]);
-  });
 
   const graphHeight = Math.max(...dataSet.map((elem) => elem[0]), graphMinHeight) * barHeightMult;
   const containerPadding = (Number(window.getComputedStyle(graphContainer).padding.replace('px', '')) * 2) - barPadding;
@@ -48,13 +43,46 @@ const generateSalesGraph = (records) => {
   }
 };
 
-// Show total revenue and date filter selection
+// Generate array of selected dates
+const getDatesArray = (start, end) => {
+  const datesArray = [];
+  for (let date = new Date(start); date <= new Date(end); date.setDate(date.getDate() + 1)) {
+    datesArray.push(new Date(date).toLocaleDateString('en-US', { timeZone: 'Etc/GMT' }));
+  }
+  return datesArray;
+};
+
+// Get records from a date range
+const getRecordsByDateRange = async (datesArray) => {
+  const outputArray = [];
+  const allRecords = await getAllSalesRecords();
+  console.warn(allRecords);
+
+  datesArray.forEach((date) => {
+    if (allRecords.map((r) => r.date).includes(date)) {
+      console.warn(allRecords);
+    } else {
+      outputArray.push([0, date]);
+    }
+  });
+
+  console.warn(outputArray);
+  return outputArray;
+};
+
+// Show total revenue and date filter selection, generate graph of last 30 days
 const viewRevenueGraph = async () => {
   clearDom();
-  const records = await getAllSalesRecords();
+
+  const dateLastMonth = new Date().setDate(new Date().getDate() - 30);
+  const date1 = new Date(dateLastMonth).toLocaleDateString('en-US');
+  const date2 = new Date().toLocaleDateString('en-US');
+  const dateRange = getDatesArray(date1, date2);
+
+  const records = await getRecordsByDateRange(dateRange);
   const domString = `
     <div id="revenueGraphContainer"></div>
-    
+
     <form id="revenueDateSelect">
       <p>Show revenue between selected dates</p>
       <label for="dateSelect1">Start Date:</label>
@@ -74,6 +102,8 @@ const viewRevenueGraph = async () => {
 };
 
 export {
-  viewRevenueGraph,
-  generateSalesGraph
+  generateSalesGraph,
+  getDatesArray,
+  getRecordsByDateRange,
+  viewRevenueGraph
 };

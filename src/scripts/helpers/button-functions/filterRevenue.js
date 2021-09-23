@@ -1,13 +1,4 @@
-import { generateSalesGraph } from '../../components/revenue';
-import { getRecordsByDateRange } from '../data/sales-records';
-
-const getDatesArray = (start, end) => {
-  const datesArray = [];
-  for (let date = new Date(start); date <= new Date(end); date.setDate(date.getDate() + 1)) {
-    datesArray.push(new Date(date).toLocaleDateString('en-US', { timeZone: 'Etc/GMT' }));
-  }
-  return datesArray;
-};
+import { generateSalesGraph, getDatesArray, getRecordsByDateRange } from '../../components/revenue';
 
 const filterRevenue = () => {
   const date1 = document.querySelector('#dateSelect1').value;
