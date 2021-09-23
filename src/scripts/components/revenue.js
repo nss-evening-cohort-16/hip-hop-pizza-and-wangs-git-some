@@ -10,7 +10,7 @@ const barPadding = 5;
 // Draw graph
 const generateSalesGraph = (dataSet) => {
   let total = 0;
-  dataSet.map((data) => data[0]).forEach((sale) => { total += sale; });
+  dataSet.map((data) => data.dayTotal).forEach((sale) => { total += sale; });
 
   const graphContainer = document.querySelector('#revenueGraphContainer');
   graphContainer.innerHTML = `
@@ -21,10 +21,10 @@ const generateSalesGraph = (dataSet) => {
     <h3 id="totalContainer">TOTAL SALES: $${total}</h3>
   `;
 
-  const graphHeight = Math.max(...dataSet.map((elem) => elem[0]), graphMinHeight) * barHeightMult;
+  const graphHeight = Math.max(...dataSet.map((elem) => elem.dayTotal), graphMinHeight) * barHeightMult + graphOffset;
   const containerPadding = (Number(window.getComputedStyle(graphContainer).padding.replace('px', '')) * 2) - barPadding;
-  const graphWidth = graphContainer.clientWidth - containerPadding;
-  const barWidth = graphWidth / dataSet.length;
+  const graphWidth = graphContainer.clientWidth - (containerPadding);
+  const barWidth = graphWidth / dataSet.length - 1;
 
   const graph = document.querySelector('#revenueGraph');
   graph.setAttribute('height', graphHeight);
@@ -32,12 +32,12 @@ const generateSalesGraph = (dataSet) => {
 
   for (let i = 0; i < dataSet.length; i++) {
     const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-    bar.setAttribute('y', (graphHeight - dataSet[i][0] * barHeightMult) - graphOffset);
-    bar.setAttribute('height', dataSet[i][0] * barHeightMult);
+    bar.setAttribute('y', (graphHeight - dataSet[i].dayTotal * barHeightMult) - graphOffset);
+    bar.setAttribute('height', dataSet[i].dayTotal * barHeightMult);
     bar.setAttribute('width', barWidth - barPadding);
     bar.setAttribute('transform', `translate(${[barWidth * i + graphOffset, 0]})`);
     bar.classList.add('graphBar');
-    bar.innerHTML = `<title>Sales: $${dataSet[i][0]} | Date: ${dataSet[i][1].slice(0, -5)}</title>`;
+    bar.innerHTML = `<title>Sales: $${dataSet[i].dayTotal} | Date: ${dataSet[i].date.slice(0, -5)}</title>`;
 
     graph.appendChild(bar);
   }
@@ -47,26 +47,23 @@ const generateSalesGraph = (dataSet) => {
 const getDatesArray = (start, end) => {
   const datesArray = [];
   for (let date = new Date(start); date <= new Date(end); date.setDate(date.getDate() + 1)) {
-    datesArray.push(new Date(date).toLocaleDateString('en-US', { timeZone: 'Etc/GMT' }));
+    datesArray.push(new Date(date).toLocaleDateString('en-US'));
   }
   return datesArray;
 };
 
 // Get records from a date range
 const getRecordsByDateRange = async (datesArray) => {
-  // console.warn(datesArray);
   const outputArray = [];
   const allRecords = await getAllSalesRecords();
-  // console.warn(allRecords);
   const dateRecords = [];
 
   datesArray.forEach((date) => {
     const recordsForDay = (allRecords.filter((r) => r.date === date));
     if (recordsForDay.length > 0) dateRecords.push(recordsForDay);
     if (recordsForDay.length === 0) dateRecords.push([{ date, orderTotal: 0, tip: 0 }]);
-    // outputArray.push([0, date]);
   });
-  console.warn(dateRecords);
+
   dateRecords.forEach((day) => {
     let dayTotal = 0;
     day.forEach((order) => { dayTotal += (Number(order.orderTotal) + Number(order.tip)); });
@@ -76,7 +73,6 @@ const getRecordsByDateRange = async (datesArray) => {
     };
     outputArray.push(dailyRecord);
   });
-  console.warn(outputArray);
   return outputArray;
 };
 
