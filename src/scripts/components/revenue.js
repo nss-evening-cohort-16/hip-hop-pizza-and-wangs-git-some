@@ -54,13 +54,14 @@ const getDatesArray = (start, end) => {
 
 // Get records from a date range
 const getRecordsByDateRange = async (datesArray) => {
+  console.warn(datesArray);
   const outputArray = [];
   const allRecords = await getAllSalesRecords();
   console.warn(allRecords);
 
   datesArray.forEach((date) => {
     if (allRecords.map((r) => r.date).includes(date)) {
-      console.warn(allRecords);
+      console.warn(allRecords.map((r) => r.date));
     } else {
       outputArray.push([0, date]);
     }
