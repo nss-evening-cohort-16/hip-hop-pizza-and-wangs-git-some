@@ -4,8 +4,8 @@ import firebaseConfig from '../../../api/apiKeys';
 const dbURL = firebaseConfig.databaseURL;
 
 // Get all Records
-const getAllSalesRecords = () => new Promise((resolve, reject) => {
-  axios.get(`${dbURL}/records.json`)
+const getAllSalesRecords = (uid, isAdmin) => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/${isAdmin ? 'records.json' : `records.json?orderBy="uid"&equalTo="${uid}"`}`)
     .then((response) => resolve(Object.values(response.data)))
     .catch(reject);
 });

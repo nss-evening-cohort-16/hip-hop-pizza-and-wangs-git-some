@@ -26,7 +26,8 @@ const closeOrderConfirm = (orderKey, uid, isAdmin) => {
         orderTotal,
         tip,
         paymentType,
-        orderType: order.orderType
+        orderType: order.orderType,
+        uid
       };
       createRecord(newRecord).then(() => closeOrder(orderKey, uid, isAdmin));
     });
