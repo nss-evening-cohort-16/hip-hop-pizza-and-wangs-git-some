@@ -53,9 +53,9 @@ const getDatesArray = (start, end) => {
 };
 
 // Get records from a date range
-const getRecordsByDateRange = async (datesArray) => {
+const getRecordsByDateRange = async (datesArray, uid, isAdmin) => {
   const outputArray = [];
-  const allRecords = await getAllSalesRecords();
+  const allRecords = await getAllSalesRecords(uid, isAdmin);
   const dateRecords = [];
 
   datesArray.forEach((date) => {
@@ -77,7 +77,7 @@ const getRecordsByDateRange = async (datesArray) => {
 };
 
 // Show total revenue and date filter selection, generate graph of last 30 days
-const viewRevenueGraph = async () => {
+const viewRevenueGraph = async (uid, isAdmin) => {
   clearDom();
 
   const dateLastMonth = new Date().setDate(new Date().getDate() - 30);
@@ -85,7 +85,7 @@ const viewRevenueGraph = async () => {
   const date2 = new Date().toLocaleDateString('en-US');
   const dateRange = getDatesArray(date1, date2);
 
-  const records = await getRecordsByDateRange(dateRange);
+  const records = await getRecordsByDateRange(dateRange, uid, isAdmin);
   const domString = `
     <div id="revenueGraphContainer"></div>
 
