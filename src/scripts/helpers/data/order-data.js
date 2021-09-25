@@ -16,8 +16,8 @@ const getOrders = (uid, isAdmin) => new Promise((resolve, reject) => {
 const getFilteredOrders = async (uid, isAdmin) => {
   const selectedFilter = document.querySelector('#orderStatusFilter').value;
   const orders = await getOrders(uid, isAdmin);
-  if (selectedFilter === 'open') return orders.filter((order) => order.isOpen);
-  if (selectedFilter === 'closed') return orders.filter((order) => order.isOpen === false);
+  if (selectedFilter === 'open') return orders.filter((order) => order.isOpen === 'open');
+  if (selectedFilter === 'closed') return orders.filter((order) => order.isOpen === 'closed');
   return orders;
 };
 
