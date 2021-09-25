@@ -6,7 +6,7 @@ const submitNewOrder = (uid, isAdmin) => {
     name: document.querySelector('#customerName').value,
     email: document.querySelector('#email').value,
     phone: document.querySelector('#phone').value,
-    orderType: document.querySelector('#orderType').value,
+    orderType: isAdmin ? document.querySelector('#orderType').value : 'online',
     date: new Date().toUTCString(),
     isOpen: 'open',
     uid

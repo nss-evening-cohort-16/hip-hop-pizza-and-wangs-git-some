@@ -14,8 +14,8 @@ const navEvents = (user, isAdmin) => {
       const openUserOrders = userOrders.filter((order) => order.isOpen === 'open');
       // eslint-disable-next-line no-alert
       if (openUserOrders.length > 0) window.alert('Please finish your current order.');
-      else addOrderForm();
-    } else addOrderForm();
+      else addOrderForm(isAdmin);
+    } else addOrderForm(isAdmin);
   });
 
   document.querySelector('#home').addEventListener('click', () => landingPage(user));

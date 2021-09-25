@@ -1,6 +1,6 @@
 import clearDom from '../helpers/clearDom';
 
-const addOrderForm = (obj = {}) => {
+const addOrderForm = (isAdmin, obj = {}) => {
   clearDom();
   document.querySelector('#formContainer').innerHTML = `<form id="${obj.firebaseKey ? `updateOrder--${obj.firebaseKey}` : `submitOrder--${obj.firebaseKey}`}">
     <div class="mb-3">
@@ -15,12 +15,12 @@ const addOrderForm = (obj = {}) => {
       <label for="email" class="form-label">Customer Email<span class="requiredItem">*</span></label>
       <input type="email" required class="form-control" id="email" aria-describedby="Email" placeholder="Email" value="${obj.email || ''}">
     </div>
-    <label for="orderType" class="form-label">Order Type<span class="requiredItem">*</span></label>
+    ${isAdmin === true ? `<label for="orderType" class="form-label">Order Type<span class="requiredItem">*</span></label>
     <select class="form-select" id="orderType" aria-label="Order Type" required>
         <option selected value=''>Please select order type</option>
         <option value="phone" ${obj.orderType === 'phone' ? 'selected' : ''}>Phone</option>
         <option value="in-person" ${obj.orderType === 'in-person' ? 'selected' : ''}>In-Person</option>
-    </select>
+    </select>` : ''}
     <button type="submit" class="btn btn-primary" id="orderFormBtn">${obj.firebaseKey ? 'Update Order' : 'Submit Order'}</button>
   </form>`;
 };
