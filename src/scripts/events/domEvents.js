@@ -78,7 +78,7 @@ const clickListener = (uid, isAdmin) => {
         break;
 
       case 'landingRevenue':
-        viewRevenueGraph();
+        viewRevenueGraph(uid, isAdmin);
         break;
 
         // ADMIN DELETE MENU ITEM FROM MENU
@@ -152,7 +152,7 @@ const submitListener = (uid, isAdmin) => {
       // Revenue page
       case 'revenueDateSelect':
         e.preventDefault();
-        filterRevenue();
+        filterRevenue(uid, isAdmin);
         break;
 
         // UPCOMING SHOWS STRETCH PGS
