@@ -242,4 +242,44 @@ hr {
   border-radius: 3px;
 }
 
+@media only screen and (max-width:1100px) {
+  #menuFilterContainer { 
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width:800px) {
+  #menuFilterContainer {
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .order-card {
+    flex-grow: 1;
+  }
+
+  .dropdown-menu {
+    position: relative;
+    text-align: center;
+    margin-bottom: .5em;
+  }
+
+  #showContainer {
+    flex-grow: 1;
+  }
+}
+
+@media only screen and (max-width:620px) {
+  .order-card {
+    flex-basis: 40%;
+  }
+}
+
+@media only screen and (max-width:420px) {
+  .order-card {
+    flex-basis: 80%;
+  }
+}
+
 @import 'revenue.scss';
