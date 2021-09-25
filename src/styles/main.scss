@@ -75,20 +75,18 @@ body {
 
 .landingBtnContainer {
   background-color: rgba(78, 78, 78, 0.603);
-  width: 25%;
+  width: 100%;
   padding: 1em 0 1em 0;
   border: 1px transparent;
   border-radius: 6px;
   color: white;
   text-shadow: 1px 1px 1px black;
-}
-
-.landingBtnContainer {
   flex-basis: 30%;
 }
 
 .landingBtnContainer button {
   margin: .25em;
+
 }
 
 .loginBtnContainer {
@@ -240,6 +238,59 @@ hr {
   padding: .2em;
   border: 1px transparent;
   border-radius: 3px;
+}
+
+@media only screen and (max-width:1100px) {
+  #menuFilterContainer { 
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width:800px) {
+  #menuFilterContainer {
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .order-card {
+    flex-grow: 1;
+  }
+
+  .dropdown-menu {
+    position: relative;
+    text-align: center;
+    margin-bottom: .5em;
+  }
+
+  #showContainer {
+    flex-grow: 1;
+  }
+
+  .landingBtnContainer {
+    width: 100%;
+    flex-basis: 70%;
+  }
+}
+
+@media only screen and (max-width:620px) {
+  .order-card {
+    flex-basis: 40%;
+  }
+
+  .landingBtnContainer {
+    flex-basis: 90%;
+  }
+}
+
+@media only screen and (max-width:420px) {
+  .order-card {
+    flex-basis: 80%;
+  }
+
+  .landingBtnContainer {
+    flex-basis: 95%;
+  }
 }
 
 @import 'revenue.scss';
