@@ -38,7 +38,7 @@ const clickListener = (uid, isAdmin) => {
         break;
 
       case 'order-edit-btn':
-        getSingleOrder(targetKey).then(addOrderForm);
+        getSingleOrder(targetKey).then((order) => addOrderForm(isAdmin, order));
         break;
 
       case 'order-delete-btn':
@@ -74,7 +74,7 @@ const clickListener = (uid, isAdmin) => {
         break;
 
       case 'landingCreateOrder':
-        addOrderForm();
+        addOrderForm(isAdmin);
         break;
 
       case 'landingRevenue':
