@@ -3,9 +3,7 @@ import landingPage from '../components/landingPage';
 import showOrders from '../components/orders';
 import { getAllShows } from '../helpers/data/upcoming-show-data';
 import showUpcomingShows from '../components/showUpcomingShows';
-import newShowForm from '../components/newShowForm';
 import { getFilteredOrders, getOrders, searchOrders } from '../helpers/data/order-data';
-// import { getAllItems } from '../helpers/data/item-data';
 import showMenu from '../components/showMenuItems';
 import { getAllMenuItems } from '../helpers/data/menu-item-data';
 
@@ -31,11 +29,7 @@ const navEvents = (user, isAdmin) => {
   });
 
   document.querySelector('#viewShows').addEventListener('click', () => {
-    getAllShows().then(showUpcomingShows);
-  });
-
-  document.querySelector('#createNewShow').addEventListener('click', () => {
-    newShowForm();
+    getAllShows().then((showArr) => showUpcomingShows(showArr, isAdmin));
   });
 
   document.querySelector('#searchBar').addEventListener('submit', (e) => {
