@@ -19,7 +19,7 @@ const addOrderForm = (obj = {}) => {
     <select class="form-select" id="orderType" aria-label="Order Type" required>
         <option selected value=''>Please select order type</option>
         <option value="phone" ${obj.orderType === 'phone' ? 'selected' : ''}>Phone</option>
-        <option value="email" ${obj.orderType === 'in-person' ? 'selected' : ''}>Email</option>
+        <option value="in-person" ${obj.orderType === 'in-person' ? 'selected' : ''}>In-Person</option>
     </select>
     <button type="submit" class="btn btn-primary" id="orderFormBtn">${obj.firebaseKey ? 'Update Order' : 'Submit Order'}</button>
   </form>`;

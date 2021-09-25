@@ -8,7 +8,7 @@ const orderTotal = (orderItems) => {
   return total;
 };
 
-const showOrderDetails = async (orderId) => {
+const showOrderDetails = async (orderId, isAdmin) => {
   clearDom();
   const orderItems = await getOrderItems(orderId);
   let domString = '<div class="order-details-container">';
@@ -16,10 +16,10 @@ const showOrderDetails = async (orderId) => {
     domString += `
       <div class="card item-card">
         <div class="card-body">
-          <h4 class="card-item">${item.name}</h4>
+          <h4 class="card-item">${item.title}</h4>
           <h4 class="card-price">PRICE: $${item.price}</h4>
           <div id="item-buttons">
-            <i class="btn btn-success far fa-edit" id="item-edit-btn--${item.firebaseKey}"></i>
+            ${isAdmin === true ? `<i class="btn btn-success far fa-edit" id="item-edit-btn--${item.firebaseKey}"></i>` : ''}
             <i class="btn btn-danger fa fa-trash-alt" id="item-delete-btn--${item.firebaseKey}"></i>
           </div>
         </div>

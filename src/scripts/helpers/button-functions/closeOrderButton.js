@@ -3,15 +3,15 @@ import { getOrderItems } from '../data/item-data';
 import { createRecord } from '../data/sales-data';
 import showOrders from '../../components/orders';
 
-const closeOrder = (orderKey) => {
+const closeOrder = (orderKey, uid, isAdmin) => {
   const orderPatch = {
     firebaseKey: orderKey,
-    isOpen: false
+    isOpen: 'closed'
   };
-  updateOrder(orderPatch).then(showOrders);
+  updateOrder(orderPatch, uid, isAdmin).then(showOrders);
 };
 
-const closeOrderConfirm = (orderKey) => {
+const closeOrderConfirm = (orderKey, uid, isAdmin) => {
   getSingleOrder(orderKey).then((order) => {
     getOrderItems(orderKey).then((items) => {
       let orderTotal = 0;
@@ -22,13 +22,14 @@ const closeOrderConfirm = (orderKey) => {
       const paymentType = document.querySelector('#paymentType').value;
 
       const newRecord = {
-        date: new Date(order.date).toLocaleDateString('en-US', { timeZone: 'Etc/GMT' }),
+        date: new Date(order.date).toLocaleDateString('en-US'),
         orderTotal,
         tip,
         paymentType,
-        orderType: order.orderType
+        orderType: order.orderType,
+        uid
       };
-      createRecord(newRecord).then(() => closeOrder(orderKey));
+      createRecord(newRecord, uid, isAdmin).then(() => closeOrder(orderKey, uid, isAdmin));
     });
   });
 };

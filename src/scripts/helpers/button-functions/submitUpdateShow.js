@@ -1,7 +1,8 @@
 import showUpcomingShows from '../../components/showUpcomingShows';
 import { updateShow } from '../data/upcoming-show-data';
+import submitNewShow from './submitNewShow';
 
-const submitUpdateShow = (showKey) => {
+const submitUpdateShow = (showKey, isAdmin) => {
   const showObj = {
     name: document.querySelector('#showName').value,
     genre: document.querySelector('#showGenre').value,
@@ -10,7 +11,7 @@ const submitUpdateShow = (showKey) => {
     img: document.querySelector('#showImg').value,
     firebaseKey: showKey
   };
-  updateShow(showObj).then(showUpcomingShows);
+  if (showKey) updateShow(showObj).then((showArr) => showUpcomingShows(showArr, isAdmin)); else submitNewShow(showObj).then((showArr) => showUpcomingShows(showArr, isAdmin));
 };
 
 export default submitUpdateShow;

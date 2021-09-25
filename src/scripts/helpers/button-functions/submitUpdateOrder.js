@@ -1,7 +1,7 @@
 import showOrders from '../../components/orders';
 import { updateOrder } from '../data/order-data';
 
-const submitUpdateOrder = (orderKey) => {
+const submitUpdateOrder = (orderKey, uid, isAdmin) => {
   const orderObj = {
     name: document.querySelector('#customerName').value,
     email: document.querySelector('#email').value,
@@ -9,7 +9,7 @@ const submitUpdateOrder = (orderKey) => {
     orderType: document.querySelector('#orderType').value,
     firebaseKey: orderKey
   };
-  updateOrder(orderObj).then(showOrders);
+  updateOrder(orderObj, uid, isAdmin).then(showOrders);
 };
 
 export default submitUpdateOrder;

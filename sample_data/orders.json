@@ -1,92 +1,331 @@
 {
-  "-MjX4hTnAwX8ZsDBtkg0": {
-    "date" : "2020-07-01T14:43:13.389Z",
-    "email" : "mferguson@email.com",
-    "firebaseKey" : "-MjX4hTnAwX8ZsDBtkg0",
-    "isOpen" : true,
-    "name" : "Murphy Ferguson",
-    "orderType" : "phone",
-    "phone" : "111-111-1111"
-  },
-  "-Mj1r6KunmGK-NazXSzb": {
-    "date" : "2018-01-09T21:30:44.988Z",
+  "-Mj1r6KunmGK-NazXSzb" : {
+    "date" : "2021-08-25T21:30:44.988Z",
     "email" : "hdeacon@email.com",
     "firebaseKey" : "-Mj1r6KunmGK-NazXSzb",
-    "isOpen" : false,
+    "isOpen" : "closed",
     "name" : "Hanan Deacon",
     "orderType" : "in-person",
     "phone" : "222-222-2222"
   },
-  "-Mj6wVFPqYAgrPZv2TqI": {
-    "date" : "2021-07-22T13:05:33.111Z",
-    "email" : "selliott@email.com",
-    "firebaseKey" : "-Mj6wVFPqYAgrPZv2TqI",
-    "isOpen" : true,
-    "name" : "Shola Elliott",
-    "orderType" : "phone",
-    "phone" : "333-333-3333"
-  },
-  "-Mj6wbUCfnq8_9eo3SmE": {
-    "date" : "2021-07-01T14:43:13.389Z",
-    "email" : "akeller@email.com",
-    "firebaseKey" : "-Mj6wbUCfnq8_9eo3SmE",
-    "isOpen" : false,
-    "name" : "Ace Keller",
-    "orderType" : "in-person",
-    "phone" : "444-444-4444"
-  },
-  "-Mj6uYvPYwOaK_id_-i7": {
-    "date" : "2021-05-01T14:43:13.389Z",
+  "-Mj6uYvPYwOaK_id_-i7" : {
+    "date" : "2021-08-26T14:43:13.389Z",
     "email" : "wferreira@email.com",
     "firebaseKey" : "-Mj6uYvPYwOaK_id_-i7",
-    "isOpen" : true,
+    "isOpen" : "closed",
     "name" : "Wade Ferreira",
     "orderType" : "phone",
     "phone" : "555-555-5555"
   },
-  "-Mj6wzuaftOOz46I9Wap": {
-    "date" : "2021-07-22T13:05:33.111Z",
+  "-Mj6wVFPqYAgrPZv2TqI" : {
+    "date" : "2021-08-27T13:05:33.111Z",
+    "email" : "selliott@email.com",
+    "firebaseKey" : "-Mj6wVFPqYAgrPZv2TqI",
+    "isOpen" : "closed",
+    "name" : "Shola Elliott",
+    "orderType" : "phone",
+    "phone" : "333-333-3333"
+  },
+  "-Mj6wbUCfnq8_9eo3SmE" : {
+    "date" : "2021-08-27T14:43:13.389Z",
+    "email" : "akeller@email.com",
+    "firebaseKey" : "-Mj6wbUCfnq8_9eo3SmE",
+    "isOpen" : "closed",
+    "name" : "Ace Keller",
+    "orderType" : "in-person",
+    "phone" : "444-444-4444"
+  },
+  "-Mj6wzuaftOOz46I9Wap" : {
+    "date" : "2021-08-28T13:05:33.111Z",
     "email" : "zwilde@email.com",
     "firebaseKey" : "-Mj6wzuaftOOz46I9Wap",
-    "isOpen" : false,
+    "isOpen" : "closed",
     "name" : "Zoey Wilde",
     "orderType" : "in-person",
     "phone" : "666-666-6666"
   },
-  "-Mj6xWlvDdSVKhRGsrEu": {
-    "date" : "2018-01-09T21:30:44.988Z",
+  "-Mj6xWlvDdSVKhRGsrEu" : {
+    "date" : "2021-08-29T21:30:44.988Z",
     "email" : "csparks@email.com",
     "firebaseKey" : "-Mj6xWlvDdSVKhRGsrEu",
-    "isOpen" : true,
+    "isOpen" : "closed",
     "name" : "Carolyn Sparks",
     "orderType" : "phone",
     "phone" : "777-777-7777"
   },
-  "-Mj6y1TqlvepN8fb7UX7": {
-    "date" : "2021-06-07T10:34:55.333Z",
+  "-Mj6y1TqlvepN8fb7UX7" : {
+    "date" : "2021-08-30T10:34:55.333Z",
     "email" : "tdickinson@email.com",
     "firebaseKey" : "-Mj6y1TqlvepN8fb7UX7",
-    "isOpen" : false,
+    "isOpen" : "closed",
     "name" : "Teagan Dickinson",
     "orderType" : "in-person",
     "phone" : "888-888-8888"
   },
-  "-Mj6z8cmxz10-2KSpWrf": {
-    "date" : "2018-03-21T06:14:23.467Z",
+  "-Mj6z8cmxz10-2KSpWrf" : {
+    "date" : "2021-09-01T06:14:23.467Z",
     "email" : "hbailey@email.com",
     "firebaseKey" : "-Mj6z8cmxz10-2KSpWrf",
-    "isOpen" : true,
+    "isOpen" : "closed",
     "name" : "Hayden Bailey",
     "orderType" : "phone",
     "phone" : "999-999-9999"
   },
-  "-Mj6zFI4pj0MOvS3pfj5": {
-    "date" : "2020-07-01T14:43:13.389Z",
+  "-Mj6zFI4pj0MOvS3pfj5" : {
+    "date" : "2021-09-02T14:43:13.389Z",
     "email" : "frivas@email.com",
     "firebaseKey" : "-Mj6zFI4pj0MOvS3pfj5",
-    "isOpen" : false,
+    "isOpen" : "closed",
     "name" : "Frankie Rivas",
     "orderType" : "in-person",
     "phone" : "101-101-1010"
+  },
+  "-MjX4hTnAwX8ZsDBtkg0" : {
+    "date" : "2021-09-03T14:43:13.389Z",
+    "email" : "mferguson@email.com",
+    "firebaseKey" : "-MjX4hTnAwX8ZsDBtkg0",
+    "isOpen" : "closed",
+    "name" : "Murphy Ferguson",
+    "orderType" : "phone",
+    "phone" : "111-111-1111"
+  },
+  "-MjtnRwbmfIdCvYJnkbF" : {
+    "date" : "2021-09-04T14:43:13.389Z",
+    "email" : "wellspring.craig@gmail.com",
+    "firebaseKey" : "-MjtnRwbmfIdCvYJnkbF",
+    "isOpen" : "closed",
+    "name" : "Craig Wellspring",
+    "orderType" : "phone",
+    "phone" : "6363599246"
+  },
+  "-Mk59ZuzAIcU7GNqlC06" : {
+    "date" : "2021-09-05T14:43:13.389Z",
+    "email" : "dsds@gmail.com",
+    "firebaseKey" : "-Mk59ZuzAIcU7GNqlC06",
+    "isOpen" : "closed",
+    "name" : "Daniel Sitarek",
+    "orderType" : "phone",
+    "phone" : "111-112-1234",
+    "uid" : "pOsNwA7qVGM6LUxzm4SUumEifnh1"
+  },
+  "-MkSJFucXg2TUHEYGXFu" : {
+    "date" : "2021-09-06T14:43:13.389Z",
+    "email" : "rayk11@gmail.com",
+    "firebaseKey" : "-MkSJFucXg2TUHEYGXFu",
+    "isOpen" : "closed",
+    "name" : "Raymond Kennedy",
+    "orderType" : "phone",
+    "phone" : "541-548-4968",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSK3dOuTL09XvP-u3T" : {
+    "date" : "2021-09-07T14:43:13.389Z",
+    "email" : "krayne@email.com",
+    "firebaseKey" : "-MkSK3dOuTL09XvP-u3T",
+    "isOpen" : "closed",
+    "name" : "Kerberos Rayne",
+    "orderType" : "phone",
+    "phone" : "585-618-7224",
+    "uid" : "zFQCjHfytxgqBGB7eWwGg8gcVN02"
+  },
+  "-MkSNi_tKt8q5wrv24iW" : {
+    "date" : "2021-09-08T14:43:13.389Z",
+    "email" : "barryd@hotmail.com",
+    "firebaseKey" : "-MkSNi_tKt8q5wrv24iW",
+    "isOpen" : "closed",
+    "name" : "Barry Dunn",
+    "orderType" : "phone",
+    "phone" : "435-654-3423",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSO9Kv-zG6gVGqooNc" : {
+    "date" : "2021-09-09T14:43:13.389Z",
+    "email" : "wazzzup112@yahoo.com",
+    "firebaseKey" : "-MkSO9Kv-zG6gVGqooNc",
+    "isOpen" : "closed",
+    "name" : "Rachel Barrett",
+    "orderType" : "in-person",
+    "phone" : "534-564-6656",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSOGjB1kBoTomMALLO" : {
+    "date" : "2021-09-10T14:43:13.389Z",
+    "email" : "calebcurry1@gmail.com",
+    "firebaseKey" : "-MkSOGjB1kBoTomMALLO",
+    "isOpen" : "closed",
+    "name" : "Caleb Curry",
+    "orderType" : "phone",
+    "phone" : "485-483-8865",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSORF-Ig-lBD_93QtW" : {
+    "date" : "2021-09-11T14:43:13.389Z",
+    "email" : "bigbadwolfe71@yahoo.com",
+    "firebaseKey" : "-MkSORF-Ig-lBD_93QtW",
+    "isOpen" : "closed",
+    "name" : "Marty Wolfe",
+    "orderType" : "phone",
+    "phone" : "775-395-3345",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSO_kt1sOxTDMeZ9H3" : {
+    "date" : "2021-09-12T14:43:13.389Z",
+    "email" : "courtneyb@gmail.com",
+    "firebaseKey" : "-MkSO_kt1sOxTDMeZ9H3",
+    "isOpen" : "closed",
+    "name" : "Courtney Barker",
+    "orderType" : "phone",
+    "phone" : "657-997-8732",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSOhhPWTJiwYfHmNH4" : {
+    "date" : "2021-09-13T16:43:13.389Z",
+    "email" : "camcam115@yahoo.com",
+    "firebaseKey" : "-MkSOhhPWTJiwYfHmNH4",
+    "isOpen" : "closed",
+    "name" : "Cameron Brown",
+    "orderType" : "in-person",
+    "phone" : "435-765-7654",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSPLvEtopgMzJbzsvB" : {
+    "date" : "2021-09-14T15:43:13.389Z",
+    "email" : "lindsaymay888@gmail.com",
+    "firebaseKey" : "-MkSPLvEtopgMzJbzsvB",
+    "isOpen" : "closed",
+    "name" : "Lindsay May",
+    "orderType" : "in-person",
+    "phone" : "654-736-2467",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSRrg3bNL7M486ywiX" : {
+    "date" : "2021-09-15T06:14:23.467Z",
+    "email" : "tyler111@gmail.com",
+    "firebaseKey" : "-MkSRrg3bNL7M486ywiX",
+    "isOpen" : "closed",
+    "name" : "Tyler Lee",
+    "orderType" : "phone",
+    "phone" : "453-767-3567",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSRzsOMOaAIumu-l0Q" : {
+    "date" : "2021-09-16T06:14:23.467Z",
+    "email" : "brooker23@gmail.com",
+    "firebaseKey" : "-MkSRzsOMOaAIumu-l0Q",
+    "isOpen" : "closed",
+    "name" : "Brooke Ramsey",
+    "orderType" : "phone",
+    "phone" : "654-764-7865",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSS5TH4GCAiIEXTjg_" : {
+    "date" : "2021-09-17T06:14:23.467Z",
+    "email" : "ted444@yahoo.com",
+    "firebaseKey" : "-MkSS5TH4GCAiIEXTjg_",
+    "isOpen" : "closed",
+    "name" : "Ted Rodriguez",
+    "orderType" : "in-person",
+    "phone" : "345-653-7567",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSSD0cmLfRHmeF5O7N" : {
+    "date" : "2021-09-18T06:14:23.467Z",
+    "email" : "hildayates5@gmail.com",
+    "firebaseKey" : "-MkSSD0cmLfRHmeF5O7N",
+    "isOpen" : "closed",
+    "name" : "Hilda Yates",
+    "orderType" : "in-person",
+    "phone" : "675-346-3556",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSSKF3xGo6JQb-Rd0z" : {
+    "date" : "2021-09-19T06:14:23.467Z",
+    "email" : "stevens8898@yahoo.com",
+    "firebaseKey" : "-MkSSKF3xGo6JQb-Rd0z",
+    "isOpen" : "closed",
+    "name" : "Kenny Stevens",
+    "orderType" : "phone",
+    "phone" : "341-455-3256",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSSUrrgnRXZicEartc" : {
+    "date" : "2021-09-20T06:14:23.467Z",
+    "email" : "rlayne68@gmail.com",
+    "firebaseKey" : "-MkSSUrrgnRXZicEartc",
+    "isOpen" : "closed",
+    "name" : "Reagan Layne",
+    "orderType" : "phone",
+    "phone" : "786-467-3353",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSSaAuVFceoUYsoAGT" : {
+    "date" : "2021-09-21T06:14:23.467Z",
+    "email" : "charaf33@gmail.com",
+    "firebaseKey" : "-MkSSaAuVFceoUYsoAGT",
+    "isOpen" : "closed",
+    "name" : "Chara Fontaine",
+    "orderType" : "in-person",
+    "phone" : "574-334-6653",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSSkzkem25M3yK-0HZ" : {
+    "date" : "2021-09-22T06:14:23.467Z",
+    "email" : "kgood644@hotmail.com",
+    "firebaseKey" : "-MkSSkzkem25M3yK-0HZ",
+    "isOpen" : "closed",
+    "name" : "Katharine Goodson",
+    "orderType" : "in-person",
+    "phone" : "864-457-3456",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSSu-1VgeV91TEkcWT" : {
+    "date" : "2021-09-23T06:14:23.467Z",
+    "email" : "a_issac55@live.com",
+    "firebaseKey" : "-MkSSu-1VgeV91TEkcWT",
+    "isOpen" : "closed",
+    "name" : "Andria Isaac",
+    "orderType" : "phone",
+    "phone" : "342-545-6743",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkST2bqitaHnA8A8tOL" : {
+    "date" : "2021-09-24T06:14:23.467Z",
+    "email" : "rickman09@yahoo.com",
+    "firebaseKey" : "-MkST2bqitaHnA8A8tOL",
+    "isOpen" : "closed",
+    "name" : "Daine Rickman",
+    "orderType" : "in-person",
+    "phone" : "344-634-6643",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSV3NkhutdW2BxQb8t" : {
+    "date" : "Sat, 25 Sep 2021 15:08:38 GMT",
+    "email" : "carman_r112@gmail.com",
+    "firebaseKey" : "-MkSV3NkhutdW2BxQb8t",
+    "isOpen" : "open",
+    "name" : "Carman Rosario",
+    "orderType" : "phone",
+    "phone" : "645-457-3345",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSVBR0M-ulduq0UMfJ" : {
+    "date" : "Sat, 25 Sep 2021 15:09:11 GMT",
+    "email" : "ridgeway55@yahoo.com",
+    "firebaseKey" : "-MkSVBR0M-ulduq0UMfJ",
+    "isOpen" : "open",
+    "name" : "Christiane Ridgeway",
+    "orderType" : "phone",
+    "phone" : "345-654-6643",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
+  },
+  "-MkSVL4tc6M9TVl6NUqJ" : {
+    "date" : "Sat, 25 Sep 2021 15:09:50 GMT",
+    "email" : "higginst88@live.com",
+    "firebaseKey" : "-MkSVL4tc6M9TVl6NUqJ",
+    "isOpen" : "open",
+    "name" : "Tina Higgins",
+    "orderType" : "in-person",
+    "phone" : "347-6673-4563",
+    "uid" : "6fmhDFXMNFhgnzYQQcpAnWIvFcJ2"
   }
 }
