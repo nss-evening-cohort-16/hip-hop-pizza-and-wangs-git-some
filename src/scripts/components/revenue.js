@@ -4,7 +4,7 @@ import { getAllSalesRecords } from '../helpers/data/sales-data';
 // Graph Settings
 const graphMinHeight = 100;
 const graphOffset = 1;
-const barHeightMult = 2;
+const barHeightMult = 1.5;
 const barPadding = 5;
 
 // Draw graph
@@ -24,7 +24,7 @@ const generateSalesGraph = (dataSet) => {
   const graphHeight = Math.max(...dataSet.map((elem) => elem.dayTotal), graphMinHeight) * barHeightMult + graphOffset;
   const containerPadding = (Number(window.getComputedStyle(graphContainer).padding.replace('px', '')) * 2) - barPadding;
   const graphWidth = graphContainer.clientWidth - (containerPadding);
-  const barWidth = graphWidth / dataSet.length - 1;
+  const barWidth = graphWidth / dataSet.length;
 
   const graph = document.querySelector('#revenueGraph');
   graph.setAttribute('height', graphHeight);
@@ -47,7 +47,7 @@ const generateSalesGraph = (dataSet) => {
 const getDatesArray = (start, end) => {
   const datesArray = [];
   for (let date = new Date(start); date <= new Date(end); date.setDate(date.getDate() + 1)) {
-    datesArray.push(new Date(date).toLocaleDateString('en-US'));
+    datesArray.push(new Date(date).toLocaleDateString('en-US', { timeZone: 'Etc/GMT' }));
   }
   return datesArray;
 };
@@ -55,8 +55,8 @@ const getDatesArray = (start, end) => {
 // Get records from a date range
 const getRecordsByDateRange = async (datesArray, uid, isAdmin) => {
   const outputArray = [];
-  const allRecords = await getAllSalesRecords(uid, isAdmin);
   const dateRecords = [];
+  const allRecords = await getAllSalesRecords(uid, isAdmin);
 
   datesArray.forEach((date) => {
     const recordsForDay = (allRecords.filter((r) => r.date === date));
