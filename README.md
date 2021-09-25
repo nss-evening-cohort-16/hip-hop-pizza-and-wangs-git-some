@@ -30,7 +30,7 @@
 #### **Authentication**: 
 * All users will have to log in to the app with Google. This is done through Google Firebase.
 
-### [Loom video walkthrough]()
+### [Loom video walkthrough](https://www.loom.com/share/d8ddcdcab2e2407a8b4337317a7a8fe5)
 
 ## Relevant Links:
 * [Figma Wireframe](https://www.figma.com/file/4y3EZddALuBR3ouSEM57Np/MVP?node-id=2%3A2)
