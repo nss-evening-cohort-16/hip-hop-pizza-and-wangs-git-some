@@ -4,7 +4,7 @@
 
 ### Contributors: [Mary Beth Hunter](https://github.com/marybethhunter), [Craig Wellspring](https://github.com/Craig-Wellspring), [Daniel Sitarek](https://github.com/dsitarek)
 
-## [View Site](git-some-hiphop-pizza-wangs.netlify.app)
+## [View Site](https://git-some-hiphop-pizza-wangs.netlify.app/#)
 ## Get Started:
 
 ```javascript
